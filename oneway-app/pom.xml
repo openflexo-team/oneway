@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<name>Formod application</name>
+	<name>Oneway application</name>
 	<parent>
 		<groupId>org.openflexo</groupId>
 		<artifactId>openflexo-production</artifactId>
 		<version>0.5-SNAPSHOT</version>
 	</parent>
-	<artifactId>formod-app</artifactId>
+	<artifactId>oneway-app</artifactId>
 	<version>2.0.1-SNAPSHOT</version>
 	<properties>
-		<product.name>Formod</product.name>
+		<product.name>Oneway</product.name>
 		<main.class>org.openflexo.Flexo</main.class>
 		<connie.version>1.5</connie.version>
 		<packagingtools.version>0.5-SNAPSHOT</packagingtools.version>
@@ -27,7 +27,7 @@
 	<dependencies>
 	    <dependency>
             <groupId>org.openflexo</groupId>
-            <artifactId>formod-module</artifactId>
+            <artifactId>oneway-module</artifactId>
             <version>2.0.1-SNAPSHOT</version>
             <scope>runtime</scope>
         </dependency>
