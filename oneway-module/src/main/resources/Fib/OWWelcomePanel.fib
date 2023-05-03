@@ -86,12 +86,12 @@
 		<Localized id="25" lang="French"
 		    value="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;    &#xA;  &lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    Le projet OneWay a pour but la ma&amp;#238;trise des cycles de productions dans &#xA;    l&amp;#8217;a&amp;#233;ronautique fran&amp;#231;aise, notamment &amp;#224; travers l&amp;#8217;avionneur Airbus. &amp;#160; Pour &#xA;    cela, ce projet vise &amp;#224; proposer des d&amp;#233;marches, techniques et outils pour &#xA;    une meilleurs efficacit&amp;#233; des activit&amp;#233;s d&amp;#8217;ing&amp;#233;nierie dans cette fili&amp;#232;re et &#xA;    assurer une am&amp;#233;lioration continue de la performance de ses produits.&#xA;&#xA;    &lt;ul&gt;&#xA;      &lt;li&gt;&#xA;        La probl&amp;#233;matique investigu&amp;#233;e par OneWay est la construction du Plan de &#xA;        D&amp;#233;veloppement Produit (PDP) et son analyse de performance qui sont, &amp;#224; &#xA;        ce jour, r&amp;#233;alis&amp;#233;es manuellement par des architectes PDP &amp;#224; partir d&amp;#8217;un &#xA;        r&amp;#233;f&amp;#233;rentiel bas&amp;#233; sur l&amp;#8217;exp&amp;#233;rience de programmes pr&amp;#233;c&amp;#233;dents.&#xA;      &lt;/li&gt;&#xA;      &lt;li&gt;&#xA;        La solution ici envisag&amp;#233;e est d&amp;#8217;utiliser la mod&amp;#233;lisation et la &#xA;        simulation de l&amp;#8217;architecture d&amp;#8217;entreprise &amp;#224; des fins de d&amp;#233;termination &#xA;        du plan produit optimal et de pilotage de l&amp;#8217;ex&amp;#233;cution de celui-ci pour &#xA;        le rendre robuste et cr&amp;#233;dible et r&amp;#233;pondre toujours au plus proche aux &#xA;        objectifs programme.&#xA;      &lt;/li&gt;&#xA;      &lt;li&gt;&#xA;        L&amp;#8217;ENSTA Bretagne contribue au d&amp;#233;veloppement du Framework de &#xA;        mod&amp;#233;lisation, sp&amp;#233;cification et v&amp;#233;rification des exigences m&amp;#233;tiers &amp;#224; &#xA;        travers une mod&amp;#233;lisation outill&amp;#233;e en s&amp;#8217;appuyant sur le socle OpenFlexo &#xA;        et OBP.&#xA;      &lt;/li&gt;&#xA;    &lt;/ul&gt;&#xA;  &lt;/body&gt;&#xA;&lt;/html&gt;&#xA;" 
 			key="welcome_informations" />
-		<Localized id="26" lang="English" value="Welcome to  Formod"
-			key="welcome_to _formod" />
-		<Localized id="27" lang="Dutch" value="welcome_to _formod"
-			key="welcome_to _formod" />
+		<Localized id="26" lang="English" value="Welcome to  Oneway"
+			key="welcome_to _oneway" />
+		<Localized id="27" lang="Dutch" value="welcome_to _oneway"
+			key="welcome_to _oneway" />
 		<Localized id="28" lang="French"
-			value="Bienvenue dans Formod" key="welcome_to _formod" />
+			value="Bienvenue dans Oneway" key="welcome_to _oneway" />
 	</LocalizedDictionary>
 	<FIBVariable id="29"
 		type="org.openflexo.module.FlexoModule$WelcomePanel" name="data" />
