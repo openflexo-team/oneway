@@ -1,0 +1,267 @@
+use org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstanceModelSlot;
+
+/**
+ * 
+ * @author montheva
+ * @version 0.1
+ */
+@VirtualModel(uri="http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml")
+public class ProcessDefinition {
+
+  public String processName;
+  public BPMNEditor bpmnEditor;
+  public Element element;
+  public String description;
+  @GetSetProperty(value="diagrams", access=get)  
+  public List<UndefinedVirtualModelInstanceType> getDiagrams {  
+    return bpmnEditor.FML@RT::SelectVirtualModelInstance();  
+  }
+
+  @ActionScheme  
+  public Void getName() {  
+  
+  }  
+
+  @ActionScheme  
+  Void getElements() {  
+  
+  }  
+
+  @ActionScheme  
+  Void getElement(String name) {  
+  
+  }  
+
+  @ActionScheme  
+  Void getElementsByType(ElementType elementType) {  
+  
+  }  
+
+  @CreationScheme  
+  ProcessDefinition:init(Element element, EMFModelResource bpmnResource, String bpmnName, String bpmnDescription) {  
+    bpmnEditor = BPMNEditor.create(parameters.bpmnResource);    
+    element = parameters.element;    
+    processName = parameters.bpmnName;    
+    description = parameters.bpmnDescription;  
+  }  
+
+  @DeletionScheme  
+  Void delete() {  
+    processName = null;    
+    description = null;  
+  }  
+
+  @ActionScheme  
+  EventDefinition getEvent(String name) {  
+    return this.SelectUniqueFlexoConceptInstance(type=EventDefinition,where=where=(selected.name = parameters.name));  
+  }  
+
+
+  @FlexoConcept  
+  public class FlowNodeDefinition extends FlowElementDefinition  {  
+  
+    public List outGoing;  
+    public List inComming;  
+  
+    @CreationScheme    
+    FlowNodeDefinition:create() {    
+      
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class FlowElementDefinition {  
+  
+    public String name;  
+  
+    @CreationScheme    
+    FlowElementDefinition:create() {    
+      
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+    @ActionScheme    
+    Void getName() {    
+      
+    }    
+  
+  }  
+
+  /**  
+   * une énumération des type d'éléments manipulés  
+   *   
+   */  
+  @FlexoConcept  
+  public class ElementType {  
+  }  
+
+  @FlexoConcept  
+  public class SequenceFlowDefinition extends FlowElementDefinition  {  
+  
+    public FlowNodeDefinition sourceNode;  
+    public FlowNodeDefinition targetNode;  
+  
+    @CreationScheme    
+    SequenceFlowDefinition:create() {    
+      
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  /**  
+   * les objets et données produits : data object, data source, data input, etc  
+   *   
+   */  
+  @FlexoConcept  
+  public class ItemAwareType {  
+  }  
+
+  @FlexoConcept  
+  public class CallActivityDefinition extends ActivityDefinition  {  
+  
+    public List flowElement;  
+  
+    @CreationScheme    
+    CallActivityDefinition:create() {    
+      
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+    @ActionScheme    
+    Void getElements() {    
+      
+    }    
+  
+    @ActionScheme    
+    Void getElement(String name) {    
+      
+    }    
+  
+    @ActionScheme    
+    Void getElementByType(ElementType elementType) {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class TaskDefinition extends ActivityDefinition  {  
+  
+    @CreationScheme    
+    TaskDefinition:create() {    
+      
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  /**  
+   * pour gérer les DataObject, Data source et autre  
+   *   
+   * @author montheva  
+   */  
+  @FlexoConcept  
+  public class ItemAwareElementDefinition {  
+  
+    public String itemName;  
+    public FlexoConceptInstance type;  
+  
+    @CreationScheme    
+    ItemAwareElementDefinition:create(String anItemName) {    
+      itemName = parameters.anItemName;    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      itemName = null;    
+    }    
+  
+    @ActionScheme    
+    Void getName() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class ElementStatusType {  
+  }  
+
+  @FlexoConcept  
+  public class GateWayDefinition extends FlowNodeDefinition  {  
+  
+    @CreationScheme    
+    GateWayDefinition:create() {    
+      
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class ActivityDefinition extends FlowNodeDefinition  {  
+  
+    public List bondaryEvent;  
+    public List itemAwareElement;  
+    public SequenceFlowDefinition defaultSequenceFlow;  
+  
+    @CreationScheme    
+    ActivityDefinition:create() {    
+      
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class EventDefinition extends FlowNodeDefinition  {  
+  
+    @CreationScheme    
+    EventDefinition:create() {    
+      
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+    @ActionScheme    
+    Void getInCommingEventByType(ElementType elementType) {    
+      
+    }    
+  
+  }  
+
+}

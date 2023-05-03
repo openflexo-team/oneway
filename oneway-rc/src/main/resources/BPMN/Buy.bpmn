@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- origin at X=0.0 Y=0.0 -->
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xs="http://www.w3.org/2001/XMLSchema" id="Definitions_073jgwu" exporter="org.eclipse.bpmn2.modeler.core" exporterVersion="1.5.3.SNAPSHOT-v20210402-0910-B1" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn:process id="Process_12x45r1" isExecutable="false">
+    <bpmn:startEvent id="StartEvent_1su00ti">
+      <bpmn:outgoing>Flow_136lxkp</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Activity_1duwzva" name="S/C Monitoring">
+      <bpmn:incoming>Flow_136lxkp</bpmn:incoming>
+      <bpmn:outgoing>Flow_0qx5m90</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_136lxkp" sourceRef="StartEvent_1su00ti" targetRef="Activity_1duwzva"/>
+    <bpmn:task id="Activity_16w2qd8" name="Design dossier review">
+      <bpmn:incoming>Flow_0qx5m90</bpmn:incoming>
+      <bpmn:outgoing>Flow_1apyenh</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0qx5m90" sourceRef="Activity_1duwzva" targetRef="Activity_16w2qd8"/>
+    <bpmn:endEvent id="Event_0u0vo7f">
+      <bpmn:incoming>Flow_1apyenh</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1apyenh" sourceRef="Activity_16w2qd8" targetRef="Event_0u0vo7f"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_12x45r1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1su00ti">
+        <dc:Bounds height="36.0" width="36.0" x="60.0" y="81.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_4" labelStyle="BPMNLabelStyle_1"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1duwzva_di" bpmnElement="Activity_1duwzva">
+        <dc:Bounds height="58.0" width="121.0" x="130.0" y="70.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_5" labelStyle="BPMNLabelStyle_1">
+          <dc:Bounds height="11.0" width="60.0" x="160.0" y="93.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_16w2qd8_di" bpmnElement="Activity_16w2qd8">
+        <dc:Bounds height="58.0" width="114.0" x="300.0" y="70.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_6" labelStyle="BPMNLabelStyle_1">
+          <dc:Bounds height="11.0" width="89.0" x="312.0" y="93.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0u0vo7f_di" bpmnElement="Event_0u0vo7f">
+        <dc:Bounds height="36.0" width="36.0" x="450.0" y="81.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_7" labelStyle="BPMNLabelStyle_1"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_136lxkp_di" bpmnElement="Flow_136lxkp" sourceElement="_BPMNShape_StartEvent_2" targetElement="Activity_1duwzva_di">
+        <di:waypoint xsi:type="dc:Point" x="96.0" y="99.0"/>
+        <di:waypoint xsi:type="dc:Point" x="113.0" y="99.0"/>
+        <di:waypoint xsi:type="dc:Point" x="130.0" y="99.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_1"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0qx5m90_di" bpmnElement="Flow_0qx5m90" sourceElement="Activity_1duwzva_di" targetElement="Activity_16w2qd8_di">
+        <di:waypoint xsi:type="dc:Point" x="251.0" y="99.0"/>
+        <di:waypoint xsi:type="dc:Point" x="275.0" y="99.0"/>
+        <di:waypoint xsi:type="dc:Point" x="300.0" y="99.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_2"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1apyenh_di" bpmnElement="Flow_1apyenh" sourceElement="Activity_16w2qd8_di" targetElement="Event_0u0vo7f_di">
+        <di:waypoint xsi:type="dc:Point" x="414.0" y="99.0"/>
+        <di:waypoint xsi:type="dc:Point" x="432.0" y="99.0"/>
+        <di:waypoint xsi:type="dc:Point" x="450.0" y="99.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_3"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+    <bpmndi:BPMNLabelStyle id="BPMNLabelStyle_1">
+      <dc:Font name="arial" size="9.0"/>
+    </bpmndi:BPMNLabelStyle>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

@@ -1,0 +1,7 @@
+getProcessDefinitions=GetProcessDefinitions
+getProcessProperties=GetProcessProperties
+importBPMNProcess=ImportBPMNProcess
+invalid_parameter=Invalid parameter
+processDefinition=ProcessDefinition
+projectDescription=ProjectDescription
+projectName=ProjectName

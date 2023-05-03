@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VirtualModel id="SYL-1" virtualModelClass="org.openflexo.foundation.fml.VirtualModel" modelVersion="2.0" version="0.1" uri="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml" visibility="Public" name="ProcessProperties" author="sylvainguerin" userID="SYL" flexoID="1">
+  <FlexoConcept id="SYL-28" visibility="Public" name="AtomicProposition" userID="SYL" flexoID="28">
+    <Inspector id="SYL-29" inspectorTitle="AtomicProposition" userID="SYL" flexoID="29">
+      <InspectorEntry id="SYL-130" widget="TEXT_FIELD" data="name" name="name" label="name" type="java.lang.String" userID="SYL" flexoID="130" />
+      <InspectorEntry id="SYL-131" widget="TEXT_FIELD" data="identifier" name="identifier" label="identifier" type="java.lang.String" userID="SYL" flexoID="131" />
+      <InspectorEntry id="SYL-129" readOnly="true" widget="TEXT_FIELD" data="expressionProperty.toString" name="expressionAsString" label="expressionAsString" type="java.lang.String" userID="SYL" flexoID="129" />
+      <InspectorEntry id="SYL-132" widget="TEXT_AREA" data="description" name="description" label="description" type="java.lang.String" userID="SYL" flexoID="132" />
+    </Inspector>
+    <PrimitiveRole id="SYL-35" primitiveType="String" cloningStrategy="Clone" cardinality="ZeroOne" name="name" userID="SYL" flexoID="35" />
+    <PrimitiveRole id="SYL-36" primitiveType="String" cloningStrategy="Clone" cardinality="ZeroOne" name="description" userID="SYL" flexoID="36" />
+    <FlexoPropertyRole id="SYL-37" container="processVM" cloningStrategy="Reference" cardinality="ZeroOne" name="expressionProperty" userID="SYL" flexoID="37" />
+    <PrimitiveRole id="SYL-105" primitiveType="String" cloningStrategy="Clone" cardinality="ZeroOne" name="identifier" userID="SYL" flexoID="105" />
+    <CreationScheme id="SYL-33" label="create" name="create" width="800" height="600" userID="SYL" flexoID="33">
+      <BehaviourControlGraph_Sequence id="SYL-48" userID="SYL" flexoID="48">
+        <ControlGraph2_Sequence id="SYL-109" ownerContext="controlGraph2" userID="SYL" flexoID="109">
+          <ControlGraph2_Sequence id="SYL-57" ownerContext="controlGraph2" userID="SYL" flexoID="57">
+            <ControlGraph2_AssignationAction id="SYL-64" assign="expressionProperty" ownerContext="controlGraph2" userID="SYL" flexoID="64">
+              <AssignableAction_CreateExpressionProperty id="SYL-56" container="processVM" expression="parameters.expression" propertyName="identifier" receiver="processVM" ownerContext="controlGraph2" userID="SYL" flexoID="56" />
+            </ControlGraph2_AssignationAction>
+            <ControlGraph1_AssignationAction id="SYL-47" assign="description" ownerContext="controlGraph1" userID="SYL" flexoID="47">
+              <AssignableAction_ExpressionAction id="SYL-46" expression="parameters.description" userID="SYL" flexoID="46" />
+            </ControlGraph1_AssignationAction>
+          </ControlGraph2_Sequence>
+          <ControlGraph1_AssignationAction id="SYL-108" assign="identifier" ownerContext="controlGraph1" userID="SYL" flexoID="108">
+            <AssignableAction_ExpressionAction id="SYL-107" expression="parameters.identifier" userID="SYL" flexoID="107" />
+          </ControlGraph1_AssignationAction>
+        </ControlGraph2_Sequence>
+        <ControlGraph1_AssignationAction id="SYL-45" assign="name" ownerContext="controlGraph1" userID="SYL" flexoID="45">
+          <AssignableAction_ExpressionAction id="SYL-44" expression="parameters.name" userID="SYL" flexoID="44" />
+        </ControlGraph1_AssignationAction>
+      </BehaviourControlGraph_Sequence>
+      <GenericBehaviourParameter id="SYL-42" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="42" />
+      <GenericBehaviourParameter id="SYL-106" widget="TEXT_FIELD" name="identifier" type="java.lang.String" userID="SYL" flexoID="106" />
+      <GenericBehaviourParameter id="SYL-40" widget="TEXT_FIELD" name="description" type="java.lang.String" userID="SYL" flexoID="40" />
+      <GenericBehaviourParameter id="SYL-39" widget="CUSTOM_WIDGET" name="expression" type="org.openflexo.connie.DataBinding&lt;java.lang.Object&gt;" userID="SYL" flexoID="39" />
+    </CreationScheme>
+    <DeletionScheme id="SYL-34" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="34">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-43" userID="SYL" flexoID="43" />
+    </DeletionScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-139" visibility="Public" name="Property" userID="SYL" flexoID="139">
+    <Inspector id="SYL-140" renderer="((scope.toString + &quot; &quot;) + pattern.toString)" inspectorTitle="Property" userID="SYL" flexoID="140">
+      <InspectorEntry id="SYL-793" widget="TEXT_FIELD" data="name" name="name" label="name" type="java.lang.String" userID="SYL" flexoID="793" />
+      <InspectorEntry id="SYL-795" widget="CUSTOM_WIDGET" data="requirement" name="requirement" label="requirement" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Requirements.fml#Requirement&gt;" userID="SYL" flexoID="795" />
+      <InspectorEntry id="SYL-1081" readOnly="true" widget="TEXT_FIELD" data="this.toString" name="property" label="property" type="java.lang.String" userID="SYL" flexoID="1081" />
+      <InspectorEntry id="SYL-1082" readOnly="true" widget="TEXT_FIELD" data="this.gpslRepresentation" name="GPSL" label="GPSL" type="java.lang.String" userID="SYL" flexoID="1082" />
+      <InspectorEntry id="SYL-794" widget="TEXT_AREA" data="description" name="description" label="description" type="java.lang.String" userID="SYL" flexoID="794" />
+    </Inspector>
+    <FlexoConceptInstanceRole id="SYL-182" virtualModelInstance="container" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Scope" cloningStrategy="Reference" cardinality="One" name="scope" userID="SYL" flexoID="182" />
+    <FlexoConceptInstanceRole id="SYL-183" virtualModelInstance="container" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Pattern" cloningStrategy="Reference" cardinality="One" name="pattern" userID="SYL" flexoID="183" />
+    <PrimitiveRole id="SYL-184" primitiveType="String" cloningStrategy="Clone" cardinality="ZeroOne" name="name" userID="SYL" flexoID="184" />
+    <PrimitiveRole id="SYL-185" primitiveType="String" cloningStrategy="Clone" cardinality="ZeroOne" name="description" userID="SYL" flexoID="185" />
+    <FlexoConceptInstanceRole id="SYL-437" virtualModelInstance="requirements" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Requirements.fml#Requirement" cloningStrategy="Reference" cardinality="ZeroOne" name="requirement" userID="SYL" flexoID="437" />
+    <ExpressionProperty id="SYL-1080" expression="((((scope.gpslRepresentation + &quot; &quot;) + &quot;(&quot;) + pattern.gpslRepresentation) + &quot;)&quot;)" name="gpslRepresentation" userID="SYL" flexoID="1080" />
+    <CreationScheme id="SYL-144" label="create" name="create" width="800" height="600" userID="SYL" flexoID="144">
+      <BehaviourControlGraph_Sequence id="SYL-194" userID="SYL" flexoID="194">
+        <ControlGraph2_Sequence id="SYL-195" ownerContext="controlGraph2" userID="SYL" flexoID="195">
+          <ControlGraph2_Sequence id="SYL-441" ownerContext="controlGraph2" userID="SYL" flexoID="441">
+            <ControlGraph2_Sequence id="SYL-196" ownerContext="controlGraph2" userID="SYL" flexoID="196">
+              <ControlGraph2_AssignationAction id="SYL-193" assign="pattern" ownerContext="controlGraph2" userID="SYL" flexoID="193">
+                <AssignableAction_ExpressionAction id="SYL-192" expression="parameters.pattern" userID="SYL" flexoID="192" />
+              </ControlGraph2_AssignationAction>
+              <ControlGraph1_AssignationAction id="SYL-191" assign="scope" ownerContext="controlGraph1" userID="SYL" flexoID="191">
+                <AssignableAction_ExpressionAction id="SYL-190" expression="parameters.scope" userID="SYL" flexoID="190" />
+              </ControlGraph1_AssignationAction>
+            </ControlGraph2_Sequence>
+            <ControlGraph1_AssignationAction id="SYL-440" assign="requirement" ownerContext="controlGraph1" userID="SYL" flexoID="440">
+              <AssignableAction_ExpressionAction id="SYL-439" expression="parameters.requirement" userID="SYL" flexoID="439" />
+            </ControlGraph1_AssignationAction>
+          </ControlGraph2_Sequence>
+          <ControlGraph1_AssignationAction id="SYL-189" assign="description" ownerContext="controlGraph1" userID="SYL" flexoID="189">
+            <AssignableAction_ExpressionAction id="SYL-188" expression="parameters.description" userID="SYL" flexoID="188" />
+          </ControlGraph1_AssignationAction>
+        </ControlGraph2_Sequence>
+        <ControlGraph1_AssignationAction id="SYL-187" assign="name" ownerContext="controlGraph1" userID="SYL" flexoID="187">
+          <AssignableAction_ExpressionAction id="SYL-186" expression="parameters.name" userID="SYL" flexoID="186" />
+        </ControlGraph1_AssignationAction>
+      </BehaviourControlGraph_Sequence>
+      <GenericBehaviourParameter id="SYL-197" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="197" />
+      <GenericBehaviourParameter id="SYL-198" widget="TEXT_FIELD" name="description" type="java.lang.String" userID="SYL" flexoID="198" />
+      <GenericBehaviourParameter id="SYL-438" widget="CUSTOM_WIDGET" name="requirement" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Requirements.fml#Requirement&gt;" userID="SYL" flexoID="438" />
+      <GenericBehaviourParameter id="SYL-199" widget="CUSTOM_WIDGET" name="scope" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Scope&gt;" userID="SYL" flexoID="199" />
+      <GenericBehaviourParameter id="SYL-200" widget="CUSTOM_WIDGET" name="pattern" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Pattern&gt;" userID="SYL" flexoID="200" />
+    </CreationScheme>
+    <DeletionScheme id="SYL-145" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="145">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-201" userID="SYL" flexoID="201" />
+    </DeletionScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-146" visibility="Public" isAbstract="true" name="Scope" userID="SYL" flexoID="146">
+    <Inspector id="SYL-147" inspectorTitle="Scope" userID="SYL" flexoID="147" />
+    <AbstractProperty id="SYL-1078" type="java.lang.String" name="gpslRepresentation" userID="SYL" flexoID="1078" />
+    <CreationScheme id="SYL-149" label="create" name="create" width="800" height="600" userID="SYL" flexoID="149">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-148" userID="SYL" flexoID="148" />
+    </CreationScheme>
+    <DeletionScheme id="SYL-151" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="151">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-150" userID="SYL" flexoID="150" />
+    </DeletionScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-153" visibility="Public" parentFlexoConceptsList="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Scope" name="Globally" userID="SYL" flexoID="153">
+    <Inspector id="SYL-202" renderer="&quot;globally&quot;" inspectorTitle="Globally" userID="SYL" flexoID="202" />
+    <ExpressionProperty id="SYL-1083" expression="&quot;[]&quot;" name="gpslRepresentation" userID="SYL" flexoID="1083" />
+    <CreationScheme id="SYL-203" label="create" name="create" width="800" height="600" userID="SYL" flexoID="203">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-204" userID="SYL" flexoID="204" />
+    </CreationScheme>
+    <DeletionScheme id="SYL-205" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="205">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-206" userID="SYL" flexoID="206" />
+    </DeletionScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-152" visibility="Public" isAbstract="true" parentFlexoConceptsList="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Scope" name="UnaryScope" userID="SYL" flexoID="152">
+    <Inspector id="SYL-207" inspectorTitle="UnaryScope" userID="SYL" flexoID="207" />
+    <FlexoConceptInstanceRole id="SYL-425" virtualModelInstance="container" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression" cloningStrategy="Reference" cardinality="One" name="expression" userID="SYL" flexoID="425" />
+    <CreationScheme id="SYL-208" label="create" name="create" width="800" height="600" userID="SYL" flexoID="208">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-432" userID="SYL" flexoID="432" />
+    </CreationScheme>
+    <DeletionScheme id="SYL-210" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="210">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-211" userID="SYL" flexoID="211" />
+    </DeletionScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-212" visibility="Public" parentFlexoConceptsList="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#UnaryScope" name="Before" userID="SYL" flexoID="212">
+    <Inspector id="SYL-213" renderer="(&quot;before &quot; + expression)" inspectorTitle="Before" userID="SYL" flexoID="213" />
+    <ExpressionProperty id="SYL-1084" expression="(&quot;before &quot; + expression.gpslRepresentation)" name="gpslRepresentation" userID="SYL" flexoID="1084" />
+    <CreationScheme id="SYL-214" label="create" name="create" width="800" height="600" userID="SYL" flexoID="214">
+      <BehaviourControlGraph_AssignationAction id="SYL-430" assign="expression" userID="SYL" flexoID="430">
+        <AssignableAction_ExpressionAction id="SYL-429" expression="parameters.expression" userID="SYL" flexoID="429" />
+      </BehaviourControlGraph_AssignationAction>
+      <GenericBehaviourParameter id="SYL-433" widget="CUSTOM_WIDGET" name="expression" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression&gt;" userID="SYL" flexoID="433" />
+    </CreationScheme>
+    <DeletionScheme id="SYL-216" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="216">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-217" userID="SYL" flexoID="217" />
+    </DeletionScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-218" visibility="Public" parentFlexoConceptsList="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#UnaryScope" name="After" userID="SYL" flexoID="218">
+    <Inspector id="SYL-219" renderer="(&quot;after &quot; + expression)" inspectorTitle="After" userID="SYL" flexoID="219" />
+    <ExpressionProperty id="SYL-1086" expression="(&quot;after &quot; + expression.gpslRepresentation)" name="gpslRepresentation" userID="SYL" flexoID="1086" />
+    <DeletionScheme id="SYL-222" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="222">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-223" userID="SYL" flexoID="223" />
+    </DeletionScheme>
+    <CreationScheme id="SYL-525" label="create" name="create" width="800" height="600" userID="SYL" flexoID="525">
+      <BehaviourControlGraph_AssignationAction id="SYL-527" assign="expression" userID="SYL" flexoID="527">
+        <AssignableAction_ExpressionAction id="SYL-526" expression="parameters.expression" userID="SYL" flexoID="526" />
+      </BehaviourControlGraph_AssignationAction>
+      <GenericBehaviourParameter id="SYL-528" widget="CUSTOM_WIDGET" name="expression" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression&gt;" userID="SYL" flexoID="528" />
+    </CreationScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-154" visibility="Public" isAbstract="true" parentFlexoConceptsList="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Scope" name="BinaryScope" userID="SYL" flexoID="154">
+    <Inspector id="SYL-224" inspectorTitle="BinaryScope" userID="SYL" flexoID="224" />
+    <FlexoConceptInstanceRole id="SYL-529" virtualModelInstance="container" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression" cloningStrategy="Reference" cardinality="One" name="expression1" userID="SYL" flexoID="529" />
+    <FlexoConceptInstanceRole id="SYL-530" virtualModelInstance="container" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression" cloningStrategy="Reference" cardinality="One" name="expression2" userID="SYL" flexoID="530" />
+    <CreationScheme id="SYL-225" label="create" name="create" width="800" height="600" userID="SYL" flexoID="225">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-226" userID="SYL" flexoID="226" />
+    </CreationScheme>
+    <DeletionScheme id="SYL-227" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="227">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-228" userID="SYL" flexoID="228" />
+    </DeletionScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-229" visibility="Public" parentFlexoConceptsList="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BinaryScope" name="Between" userID="SYL" flexoID="229">
+    <Inspector id="SYL-230" renderer="(((&quot;between &quot; + expression1) + &quot; and &quot;) + expression2)" inspectorTitle="Between" userID="SYL" flexoID="230" />
+    <ExpressionProperty id="SYL-1087" expression="(((&quot;between &quot; + expression1.gpslRepresentation) + &quot; and &quot;) + expression2.gpslRepresentation)" name="gpslRepresentation" userID="SYL" flexoID="1087" />
+    <DeletionScheme id="SYL-233" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="233">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-234" userID="SYL" flexoID="234" />
+    </DeletionScheme>
+    <CreationScheme id="SYL-531" label="create" name="create" width="800" height="600" userID="SYL" flexoID="531">
+      <BehaviourControlGraph_Sequence id="SYL-538" userID="SYL" flexoID="538">
+        <ControlGraph2_AssignationAction id="SYL-536" assign="expression2" ownerContext="controlGraph2" userID="SYL" flexoID="536">
+          <AssignableAction_ExpressionAction id="SYL-537" expression="parameters.expression2" userID="SYL" flexoID="537" />
+        </ControlGraph2_AssignationAction>
+        <ControlGraph1_AssignationAction id="SYL-533" assign="expression1" ownerContext="controlGraph1" userID="SYL" flexoID="533">
+          <AssignableAction_ExpressionAction id="SYL-532" expression="parameters.expression1" userID="SYL" flexoID="532" />
+        </ControlGraph1_AssignationAction>
+      </BehaviourControlGraph_Sequence>
+      <GenericBehaviourParameter id="SYL-534" widget="CUSTOM_WIDGET" name="expression1" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression&gt;" userID="SYL" flexoID="534" />
+      <GenericBehaviourParameter id="SYL-535" widget="CUSTOM_WIDGET" name="expression2" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression&gt;" userID="SYL" flexoID="535" />
+    </CreationScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-235" visibility="Public" parentFlexoConceptsList="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BinaryScope" name="AfterUntil" userID="SYL" flexoID="235">
+    <Inspector id="SYL-236" renderer="(((&quot;after &quot; + expression1) + &quot; until &quot;) + expression2)" inspectorTitle="AfterUntil" userID="SYL" flexoID="236" />
+    <ExpressionProperty id="SYL-1088" expression="(((&quot;after &quot; + expression1.gpslRepresentation) + &quot; until &quot;) + expression2.gpslRepresentation)" name="gpslRepresentation" userID="SYL" flexoID="1088" />
+    <DeletionScheme id="SYL-239" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="239">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-240" userID="SYL" flexoID="240" />
+    </DeletionScheme>
+    <CreationScheme id="SYL-539" label="create" name="create" width="800" height="600" userID="SYL" flexoID="539">
+      <BehaviourControlGraph_Sequence id="SYL-544" userID="SYL" flexoID="544">
+        <ControlGraph2_AssignationAction id="SYL-541" assign="expression2" ownerContext="controlGraph2" userID="SYL" flexoID="541">
+          <AssignableAction_ExpressionAction id="SYL-540" expression="parameters.expression2" userID="SYL" flexoID="540" />
+        </ControlGraph2_AssignationAction>
+        <ControlGraph1_AssignationAction id="SYL-543" assign="expression1" ownerContext="controlGraph1" userID="SYL" flexoID="543">
+          <AssignableAction_ExpressionAction id="SYL-542" expression="parameters.expression1" userID="SYL" flexoID="542" />
+        </ControlGraph1_AssignationAction>
+      </BehaviourControlGraph_Sequence>
+      <GenericBehaviourParameter id="SYL-545" widget="CUSTOM_WIDGET" name="expression1" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression&gt;" userID="SYL" flexoID="545" />
+      <GenericBehaviourParameter id="SYL-546" widget="CUSTOM_WIDGET" name="expression2" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression&gt;" userID="SYL" flexoID="546" />
+    </CreationScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-155" visibility="Public" isAbstract="true" name="Pattern" userID="SYL" flexoID="155">
+    <Inspector id="SYL-241" inspectorTitle="Pattern" userID="SYL" flexoID="241" />
+    <AbstractProperty id="SYL-1079" type="java.lang.String" name="gpslRepresentation" userID="SYL" flexoID="1079" />
+    <CreationScheme id="SYL-242" label="create" name="create" width="800" height="600" userID="SYL" flexoID="242">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-243" userID="SYL" flexoID="243" />
+    </CreationScheme>
+    <DeletionScheme id="SYL-244" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="244">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-245" userID="SYL" flexoID="245" />
+    </DeletionScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-156" visibility="Public" isAbstract="true" parentFlexoConceptsList="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Pattern" name="OccurencePattern" userID="SYL" flexoID="156">
+    <Inspector id="SYL-246" inspectorTitle="OccurencePattern" userID="SYL" flexoID="246" />
+    <FlexoConceptInstanceRole id="SYL-642" virtualModelInstance="container" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression" cloningStrategy="Reference" cardinality="One" name="expression" userID="SYL" flexoID="642" />
+    <CreationScheme id="SYL-247" label="create" name="create" width="800" height="600" userID="SYL" flexoID="247">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-248" userID="SYL" flexoID="248" />
+    </CreationScheme>
+    <DeletionScheme id="SYL-249" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="249">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-250" userID="SYL" flexoID="250" />
+    </DeletionScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-157" visibility="Public" isAbstract="true" parentFlexoConceptsList="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#OccurencePattern" name="UnboundedOccurencePattern" userID="SYL" flexoID="157">
+    <Inspector id="SYL-251" inspectorTitle="UnboundedOccurencePattern" userID="SYL" flexoID="251" />
+    <CreationScheme id="SYL-252" label="create" name="create" width="800" height="600" userID="SYL" flexoID="252">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-253" userID="SYL" flexoID="253" />
+    </CreationScheme>
+    <DeletionScheme id="SYL-254" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="254">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-255" userID="SYL" flexoID="255" />
+    </DeletionScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-159" visibility="Public" parentFlexoConceptsList="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#UnboundedOccurencePattern" name="Absence" userID="SYL" flexoID="159">
+    <Inspector id="SYL-256" renderer="(&quot;absence &quot; + expression)" inspectorTitle="Absence" userID="SYL" flexoID="256" />
+    <ExpressionProperty id="SYL-1089" expression="(&quot;not &quot; + expression.gpslRepresentation)" name="gpslRepresentation" userID="SYL" flexoID="1089" />
+    <DeletionScheme id="SYL-259" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="259">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-260" userID="SYL" flexoID="260" />
+    </DeletionScheme>
+    <CreationScheme id="SYL-651" label="create" name="create" width="800" height="600" userID="SYL" flexoID="651">
+      <BehaviourControlGraph_AssignationAction id="SYL-653" assign="expression" userID="SYL" flexoID="653">
+        <AssignableAction_ExpressionAction id="SYL-652" expression="parameters.expression" userID="SYL" flexoID="652" />
+      </BehaviourControlGraph_AssignationAction>
+      <GenericBehaviourParameter id="SYL-654" widget="CUSTOM_WIDGET" name="expression" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression&gt;" userID="SYL" flexoID="654" />
+    </CreationScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-160" visibility="Public" parentFlexoConceptsList="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#UnboundedOccurencePattern" name="Universality" userID="SYL" flexoID="160">
+    <Inspector id="SYL-261" renderer="(&quot;universality &quot; + expression)" inspectorTitle="Universality" userID="SYL" flexoID="261" />
+    <ExpressionProperty id="SYL-1090" expression="expression.gpslRepresentation" name="gpslRepresentation" userID="SYL" flexoID="1090" />
+    <DeletionScheme id="SYL-264" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="264">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-265" userID="SYL" flexoID="265" />
+    </DeletionScheme>
+    <CreationScheme id="SYL-655" label="create" name="create" width="800" height="600" userID="SYL" flexoID="655">
+      <BehaviourControlGraph_AssignationAction id="SYL-657" assign="expression" userID="SYL" flexoID="657">
+        <AssignableAction_ExpressionAction id="SYL-656" expression="parameters.expression" userID="SYL" flexoID="656" />
+      </BehaviourControlGraph_AssignationAction>
+      <GenericBehaviourParameter id="SYL-658" widget="CUSTOM_WIDGET" name="expression" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression&gt;" userID="SYL" flexoID="658" />
+    </CreationScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-161" visibility="Public" parentFlexoConceptsList="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#UnboundedOccurencePattern" name="Existence" userID="SYL" flexoID="161">
+    <Inspector id="SYL-266" renderer="(&quot;existence &quot; + expression)" inspectorTitle="Existence" userID="SYL" flexoID="266" />
+    <ExpressionProperty id="SYL-1091" expression="expression.gpslRepresentation" name="gpslRepresentation" userID="SYL" flexoID="1091" />
+    <DeletionScheme id="SYL-269" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="269">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-270" userID="SYL" flexoID="270" />
+    </DeletionScheme>
+    <CreationScheme id="SYL-659" label="create" name="create" width="800" height="600" userID="SYL" flexoID="659">
+      <BehaviourControlGraph_AssignationAction id="SYL-661" assign="expression" userID="SYL" flexoID="661">
+        <AssignableAction_ExpressionAction id="SYL-660" expression="parameters.expression" userID="SYL" flexoID="660" />
+      </BehaviourControlGraph_AssignationAction>
+      <GenericBehaviourParameter id="SYL-662" widget="CUSTOM_WIDGET" name="expression" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression&gt;" userID="SYL" flexoID="662" />
+    </CreationScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-170" visibility="Public" isAbstract="true" parentFlexoConceptsList="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Pattern" name="OrderPattern" userID="SYL" flexoID="170">
+    <Inspector id="SYL-171" inspectorTitle="OrderPattern" userID="SYL" flexoID="171" />
+    <CreationScheme id="SYL-175" label="create" name="create" width="800" height="600" userID="SYL" flexoID="175">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-271" userID="SYL" flexoID="271" />
+    </CreationScheme>
+    <DeletionScheme id="SYL-176" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="176">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-272" userID="SYL" flexoID="272" />
+    </DeletionScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-177" visibility="Public" isAbstract="true" parentFlexoConceptsList="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#OrderPattern" name="SingleOrderPattern" userID="SYL" flexoID="177">
+    <Inspector id="SYL-273" inspectorTitle="SingleOrderPattern" userID="SYL" flexoID="273" />
+    <FlexoConceptInstanceRole id="SYL-643" virtualModelInstance="container" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression" cloningStrategy="Reference" cardinality="One" name="expression1" userID="SYL" flexoID="643" />
+    <FlexoConceptInstanceRole id="SYL-644" virtualModelInstance="container" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression" cloningStrategy="Reference" cardinality="One" name="expression2" userID="SYL" flexoID="644" />
+    <CreationScheme id="SYL-274" label="create" name="create" width="800" height="600" userID="SYL" flexoID="274">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-275" userID="SYL" flexoID="275" />
+    </CreationScheme>
+    <DeletionScheme id="SYL-276" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="276">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-277" userID="SYL" flexoID="277" />
+    </DeletionScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-178" visibility="Public" parentFlexoConceptsList="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#SingleOrderPattern" name="Precedence" userID="SYL" flexoID="178">
+    <Inspector id="SYL-278" renderer="((expression1.toString + &quot; precedence &quot;) + expression2.toString)" inspectorTitle="Precedence" userID="SYL" flexoID="278" />
+    <ExpressionProperty id="SYL-1093" expression="((expression1.gpslRepresentation + &quot; &lt;- &quot;) + expression2.gpslRepresentation)" name="gpslRepresentation" userID="SYL" flexoID="1093" />
+    <DeletionScheme id="SYL-281" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="281">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-282" userID="SYL" flexoID="282" />
+    </DeletionScheme>
+    <CreationScheme id="SYL-961" label="create" name="create" width="800" height="600" userID="SYL" flexoID="961">
+      <BehaviourControlGraph_Sequence id="SYL-966" userID="SYL" flexoID="966">
+        <ControlGraph2_AssignationAction id="SYL-963" assign="expression2" ownerContext="controlGraph2" userID="SYL" flexoID="963">
+          <AssignableAction_ExpressionAction id="SYL-962" expression="parameters.expression2" userID="SYL" flexoID="962" />
+        </ControlGraph2_AssignationAction>
+        <ControlGraph1_AssignationAction id="SYL-965" assign="expression1" ownerContext="controlGraph1" userID="SYL" flexoID="965">
+          <AssignableAction_ExpressionAction id="SYL-964" expression="parameters.expression1" userID="SYL" flexoID="964" />
+        </ControlGraph1_AssignationAction>
+      </BehaviourControlGraph_Sequence>
+      <GenericBehaviourParameter id="SYL-967" widget="CUSTOM_WIDGET" name="expression1" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression&gt;" userID="SYL" flexoID="967" />
+      <GenericBehaviourParameter id="SYL-968" widget="CUSTOM_WIDGET" name="expression2" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression&gt;" userID="SYL" flexoID="968" />
+    </CreationScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-283" visibility="Public" parentFlexoConceptsList="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#SingleOrderPattern" name="Response" userID="SYL" flexoID="283">
+    <Inspector id="SYL-284" renderer="((expression1.toString + &quot; response &quot;) + expression2.toString)" inspectorTitle="Response" userID="SYL" flexoID="284" />
+    <ExpressionProperty id="SYL-1094" expression="((expression2.gpslRepresentation + &quot; -&gt; &lt;&gt;&quot;) + expression1.gpslRepresentation)" name="gpslRepresentation" userID="SYL" flexoID="1094" />
+    <DeletionScheme id="SYL-287" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="287">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-288" userID="SYL" flexoID="288" />
+    </DeletionScheme>
+    <CreationScheme id="SYL-969" label="create" name="create" width="800" height="600" userID="SYL" flexoID="969">
+      <BehaviourControlGraph_Sequence id="SYL-974" userID="SYL" flexoID="974">
+        <ControlGraph2_AssignationAction id="SYL-971" assign="expression2" ownerContext="controlGraph2" userID="SYL" flexoID="971">
+          <AssignableAction_ExpressionAction id="SYL-970" expression="parameters.expression2" userID="SYL" flexoID="970" />
+        </ControlGraph2_AssignationAction>
+        <ControlGraph1_AssignationAction id="SYL-973" assign="expression1" ownerContext="controlGraph1" userID="SYL" flexoID="973">
+          <AssignableAction_ExpressionAction id="SYL-972" expression="parameters.expression1" userID="SYL" flexoID="972" />
+        </ControlGraph1_AssignationAction>
+      </BehaviourControlGraph_Sequence>
+      <GenericBehaviourParameter id="SYL-975" widget="CUSTOM_WIDGET" name="expression1" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression&gt;" userID="SYL" flexoID="975" />
+      <GenericBehaviourParameter id="SYL-976" widget="CUSTOM_WIDGET" name="expression2" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression&gt;" userID="SYL" flexoID="976" />
+    </CreationScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-179" visibility="Public" isAbstract="true" parentFlexoConceptsList="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#OrderPattern" name="ChainOrderPattern" userID="SYL" flexoID="179">
+    <Inspector id="SYL-289" inspectorTitle="ChainOrderPattern" userID="SYL" flexoID="289" />
+    <CreationScheme id="SYL-290" label="create" name="create" width="800" height="600" userID="SYL" flexoID="290">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-291" userID="SYL" flexoID="291" />
+    </CreationScheme>
+    <DeletionScheme id="SYL-292" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="292">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-293" userID="SYL" flexoID="293" />
+    </DeletionScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-180" visibility="Public" parentFlexoConceptsList="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#ChainOrderPattern" name="ChainPrecedence" userID="SYL" flexoID="180">
+    <Inspector id="SYL-294" renderer="&quot;not implemented&quot;" inspectorTitle="ChainPrecedence" userID="SYL" flexoID="294" />
+    <ExpressionProperty id="SYL-1095" expression="&quot;not implemented&quot;" name="gpslRepresentation" userID="SYL" flexoID="1095" />
+    <CreationScheme id="SYL-295" label="create" name="create" width="800" height="600" userID="SYL" flexoID="295">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-296" userID="SYL" flexoID="296" />
+    </CreationScheme>
+    <DeletionScheme id="SYL-297" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="297">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-298" userID="SYL" flexoID="298" />
+    </DeletionScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-181" visibility="Public" parentFlexoConceptsList="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#ChainOrderPattern" name="ChainResponse" userID="SYL" flexoID="181">
+    <Inspector id="SYL-299" renderer="&quot;not implemented&quot;" inspectorTitle="ChainResponse" userID="SYL" flexoID="299" />
+    <ExpressionProperty id="SYL-1096" expression="&quot;not implemented&quot;" name="gpslRepresentation" userID="SYL" flexoID="1096" />
+    <CreationScheme id="SYL-300" label="create" name="create" width="800" height="600" userID="SYL" flexoID="300">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-301" userID="SYL" flexoID="301" />
+    </CreationScheme>
+    <DeletionScheme id="SYL-302" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="302">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-303" userID="SYL" flexoID="303" />
+    </DeletionScheme>
+  </FlexoConcept>
+  <FlexoConcept id="SYL-396" visibility="Public" name="BooleanExpression" userID="SYL" flexoID="396">
+    <Inspector id="SYL-397" renderer="expression.toString" inspectorTitle="BooleanExpression" userID="SYL" flexoID="397" />
+    <FMLDataBindingRole id="SYL-403" container="processVM" cloningStrategy="Clone" cardinality="One" name="expression" userID="SYL" flexoID="403" />
+    <ExpressionProperty id="SYL-1085" expression="((&quot;|&quot; + expression) + &quot;|&quot;)" name="gpslRepresentation" userID="SYL" flexoID="1085" />
+    <CreationScheme id="SYL-401" label="create" name="create" width="800" height="600" userID="SYL" flexoID="401">
+      <BehaviourControlGraph_AssignationAction id="SYL-405" assign="expression" userID="SYL" flexoID="405">
+        <AssignableAction_ExpressionAction id="SYL-404" expression="parameters.expression" userID="SYL" flexoID="404" />
+      </BehaviourControlGraph_AssignationAction>
+      <GenericBehaviourParameter id="SYL-411" widget="CUSTOM_WIDGET" name="expression" type="org.openflexo.connie.DataBinding&lt;java.lang.Boolean&gt;" userID="SYL" flexoID="411" />
+    </CreationScheme>
+    <DeletionScheme id="SYL-402" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="402">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-412" userID="SYL" flexoID="412" />
+    </DeletionScheme>
+  </FlexoConcept>
+  <FlexoEnum id="SYL-667" name="BounderType" userID="SYL" flexoID="667">
+    <Value_FlexoEnumValue id="SYL-673" name="AT_LEAST" userID="SYL" flexoID="673">
+      <Inspector id="SYL--1" inspectorTitle="AT_LEAST" userID="SYL" flexoID="-1" />
+    </Value_FlexoEnumValue>
+    <Value_FlexoEnumValue id="SYL-674" name="EXACTLY" userID="SYL" flexoID="674">
+      <Inspector id="MON--1" inspectorTitle="EXACTLY" userID="MON" flexoID="-1" />
+    </Value_FlexoEnumValue>
+    <Value_FlexoEnumValue id="SYL-675" name="AT_MOST" userID="SYL" flexoID="675">
+      <Inspector id="MON--1" inspectorTitle="AT_MOST" userID="MON" flexoID="-1" />
+    </Value_FlexoEnumValue>
+    <Inspector id="SYL-668" inspectorTitle="BounderType" userID="SYL" flexoID="668" />
+  </FlexoEnum>
+  <FlexoConcept id="SYL-158" visibility="Public" parentFlexoConceptsList="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#OccurencePattern" name="BoundedExistence" userID="SYL" flexoID="158">
+    <Inspector id="SYL-162" renderer="((((bounderType + &quot; &quot;) + counter) + &quot; &quot;) + expression)" inspectorTitle="BoundedOccurencePattern" userID="SYL" flexoID="162" />
+    <PrimitiveRole id="SYL-676" primitiveType="String" cloningStrategy="Clone" cardinality="One" name="bounderType" userID="SYL" flexoID="676" />
+    <PrimitiveRole id="SYL-677" primitiveType="Integer" cloningStrategy="Clone" cardinality="One" name="counter" userID="SYL" flexoID="677" />
+    <ExpressionProperty id="SYL-1092" expression="((((bounderType + &quot; &quot;) + counter) + &quot; &quot;) + expression.gpslRepresentation)" name="gpslRepresentation" userID="SYL" flexoID="1092" />
+    <DeletionScheme id="SYL-166" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="166">
+      <BehaviourControlGraph_EmptyControlGraph id="SYL-165" userID="SYL" flexoID="165" />
+    </DeletionScheme>
+    <CreationScheme id="SYL-663" label="create" name="create" width="800" height="600" userID="SYL" flexoID="663">
+      <BehaviourControlGraph_Sequence id="SYL-683" userID="SYL" flexoID="683">
+        <ControlGraph2_Sequence id="SYL-684" ownerContext="controlGraph2" userID="SYL" flexoID="684">
+          <ControlGraph2_AssignationAction id="SYL-682" assign="counter" ownerContext="controlGraph2" userID="SYL" flexoID="682">
+            <AssignableAction_ExpressionAction id="SYL-681" expression="parameters.counter" userID="SYL" flexoID="681" />
+          </ControlGraph2_AssignationAction>
+          <ControlGraph1_AssignationAction id="SYL-680" assign="bounderType" ownerContext="controlGraph1" userID="SYL" flexoID="680">
+            <AssignableAction_ExpressionAction id="SYL-679" expression="parameters.bounderType" userID="SYL" flexoID="679" />
+          </ControlGraph1_AssignationAction>
+        </ControlGraph2_Sequence>
+        <ControlGraph1_AssignationAction id="SYL-665" assign="expression" ownerContext="controlGraph1" userID="SYL" flexoID="665">
+          <AssignableAction_ExpressionAction id="SYL-664" expression="parameters.expression" userID="SYL" flexoID="664" />
+        </ControlGraph1_AssignationAction>
+      </BehaviourControlGraph_Sequence>
+      <GenericBehaviourParameter id="SYL-685" widget="TEXT_FIELD" name="bounderType" type="java.lang.String" userID="SYL" flexoID="685" />
+      <GenericBehaviourParameter id="SYL-678" widget="INTEGER" name="counter" type="int" userID="SYL" flexoID="678" />
+      <GenericBehaviourParameter id="SYL-666" widget="CUSTOM_WIDGET" name="expression" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression&gt;" userID="SYL" flexoID="666" />
+    </CreationScheme>
+  </FlexoConcept>
+  <UseModelSlotDeclaration id="0" modelSlotClass="org.openflexo.foundation.fml.ta.FMLModelSlot" userID="SYL" flexoID="-1" />
+  <UseModelSlotDeclaration id="1" modelSlotClass="org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstanceModelSlot" userID="SYL" flexoID="-1" />
+  <Inspector id="SYL-2" inspectorTitle="ProcessProperties" userID="SYL" flexoID="2" />
+  <FMLModelSlot id="SYL-6" isRequired="true" cloningStrategy="Reference" cardinality="ZeroOne" name="processVM" userID="SYL" flexoID="6" />
+  <FMLRTVirtualModelInstanceModelSlot id="SYL-11" virtualModelURI="http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml" isRequired="true" cloningStrategy="Reference" cardinality="ZeroOne" name="processDefinition" userID="SYL" flexoID="11" />
+  <GetSetProperty id="SYL-118" name="atomicPropositions" userID="SYL" flexoID="118">
+    <SetControlGraph_EmptyControlGraph id="SYL-122" ownerContext="setControlGraph" userID="SYL" flexoID="122" />
+    <GetControlGraph_ReturnStatement id="SYL-121" ownerContext="getControlGraph" userID="SYL" flexoID="121">
+      <AssignableAction_SelectFlexoConceptInstance id="SYL-120" container="this" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#AtomicProposition" receiver="this" userID="SYL" flexoID="120" />
+    </GetControlGraph_ReturnStatement>
+  </GetSetProperty>
+  <GetSetProperty id="SYL-304" name="properties" userID="SYL" flexoID="304">
+    <SetControlGraph_EmptyControlGraph id="SYL-308" ownerContext="setControlGraph" userID="SYL" flexoID="308" />
+    <GetControlGraph_ReturnStatement id="SYL-307" ownerContext="getControlGraph" userID="SYL" flexoID="307">
+      <AssignableAction_SelectFlexoConceptInstance id="SYL-306" container="this" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Property" receiver="this" userID="SYL" flexoID="306" />
+    </GetControlGraph_ReturnStatement>
+  </GetSetProperty>
+  <CreationScheme id="SYL-7" label="init" name="init" width="800" height="600" userID="SYL" flexoID="7">
+    <BehaviourControlGraph_Sequence id="SYL-25" userID="SYL" flexoID="25">
+      <ControlGraph2_Sequence id="SYL-26" ownerContext="controlGraph2" userID="SYL" flexoID="26">
+        <ControlGraph2_Sequence id="SYL-27" ownerContext="controlGraph2" userID="SYL" flexoID="27">
+          <ControlGraph2_Sequence id="SYL-98" ownerContext="controlGraph2" userID="SYL" flexoID="98">
+            <ControlGraph2_Sequence id="SYL-90" ownerContext="controlGraph2" userID="SYL" flexoID="90">
+              <ControlGraph2_Sequence id="SYL-879" ownerContext="controlGraph2" userID="SYL" flexoID="879">
+                <ControlGraph2_CreatePrimitiveRole id="SYL-878" container="processVM" roleName="&quot;deadlock&quot;" staticPrimitiveType="Boolean" receiver="processVM" ownerContext="controlGraph2" userID="SYL" flexoID="878" />
+                <ControlGraph1_CreateFlexoConceptInstanceRole id="SYL-89" container="processVM" flexoConceptType="processDefinition.virtualModel.getVirtualModelNamed(&quot;ProcessExecution&quot;)" roleName="&quot;processExecution&quot;" receiver="processVM" ownerContext="controlGraph1" userID="SYL" flexoID="89" />
+              </ControlGraph2_Sequence>
+              <ControlGraph1_CreateFlexoConceptInstanceRole id="SYL-87" container="processVM" flexoConceptType="processDefinition.virtualModel" roleName="&quot;processDefinition&quot;" receiver="processVM" ownerContext="controlGraph1" userID="SYL" flexoID="87" />
+            </ControlGraph2_Sequence>
+            <ControlGraph1_AssignationAction id="SYL-13" assign="processDefinition" ownerContext="controlGraph1" userID="SYL" flexoID="13">
+              <AssignableAction_ExpressionAction id="SYL-12" expression="parameters.processDefinition" userID="SYL" flexoID="12" />
+            </ControlGraph1_AssignationAction>
+          </ControlGraph2_Sequence>
+          <ControlGraph1_AssignationAction id="SYL-10" assign="processVM" ownerContext="controlGraph1" userID="SYL" flexoID="10">
+            <AssignableAction_CreateContainedVirtualModel id="SYL-9" container="propertiesVM" virtualModelName="(vmName + &quot;VM&quot;)" receiver="propertiesVM" userID="SYL" flexoID="9" />
+          </ControlGraph1_AssignationAction>
+        </ControlGraph2_Sequence>
+        <ControlGraph1_ConditionalAction id="SYL-22" condition="vmName.endsWith(&quot;.bpmn&quot;)" ownerContext="controlGraph1" userID="SYL" flexoID="22">
+          <ThenControlGraph_AssignationAction id="SYL-24" assign="vmName" ownerContext="thenControlGraph" userID="SYL" flexoID="24">
+            <AssignableAction_ExpressionAction id="SYL-23" expression="vmName.substring(0,(vmName.length - 5))" userID="SYL" flexoID="23" />
+          </ThenControlGraph_AssignationAction>
+        </ControlGraph1_ConditionalAction>
+      </ControlGraph2_Sequence>
+      <ControlGraph1_DeclarationAction id="SYL-20" variable="vmName" ownerContext="controlGraph1" userID="SYL" flexoID="20">
+        <AssignableAction_ExpressionAction id="SYL-19" expression="parameters.processDefinition.processName" userID="SYL" flexoID="19" />
+      </ControlGraph1_DeclarationAction>
+    </BehaviourControlGraph_Sequence>
+    <GenericBehaviourParameter id="SYL-15" widget="CUSTOM_WIDGET" name="processDefinition" type="org.openflexo.foundation.fml.VirtualModelInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml&gt;" userID="SYL" flexoID="15" />
+  </CreationScheme>
+  <ActionScheme id="SYL-71" label="createNewAtomicProposition" name="createNewAtomicProposition" width="800" height="600" userID="SYL" flexoID="71">
+    <BehaviourControlGraph_ReturnStatement id="SYL-385" userID="SYL" flexoID="385">
+      <AssignableAction_AddFlexoConceptInstance id="SYL-73" creationSchemeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#AtomicProposition.create(name,identifier,description,expression)" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#AtomicProposition" receiver="this" userID="SYL" flexoID="73">
+        <AddFlexoConceptInstanceParameter id="SYL-74" paramName="name" value="parameters.name" userID="SYL" flexoID="74" />
+        <AddFlexoConceptInstanceParameter id="SYL-75" paramName="description" value="parameters.description" userID="SYL" flexoID="75" />
+        <AddFlexoConceptInstanceParameter id="SYL-76" paramName="expression" value="parameters.expression" userID="SYL" flexoID="76" />
+        <AddFlexoConceptInstanceParameter id="SYL-110" paramName="identifier" value="parameters.identifier" userID="SYL" flexoID="110" />
+      </AssignableAction_AddFlexoConceptInstance>
+    </BehaviourControlGraph_ReturnStatement>
+    <GenericBehaviourParameter id="SYL-77" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="77" />
+    <GenericBehaviourParameter id="SYL-111" widget="TEXT_FIELD" name="identifier" type="java.lang.String" userID="SYL" flexoID="111" />
+    <GenericBehaviourParameter id="SYL-78" widget="TEXT_FIELD" name="description" type="java.lang.String" userID="SYL" flexoID="78" />
+    <GenericBehaviourParameter id="SYL-79" widget="CUSTOM_WIDGET" name="expression" type="org.openflexo.connie.DataBinding&lt;java.lang.Object&gt;" userID="SYL" flexoID="79" />
+  </ActionScheme>
+  <ActionScheme id="SYL-384" label="createProperty" name="createProperty" width="800" height="600" userID="SYL" flexoID="384">
+    <BehaviourControlGraph_ReturnStatement id="SYL-395" userID="SYL" flexoID="395">
+      <AssignableAction_AddFlexoConceptInstance id="SYL-390" creationSchemeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Property.create(name,description,requirement,scope,pattern)" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Property" receiver="this" userID="SYL" flexoID="390">
+        <AddFlexoConceptInstanceParameter id="SYL-391" paramName="name" value="parameters.name" userID="SYL" flexoID="391" />
+        <AddFlexoConceptInstanceParameter id="SYL-392" paramName="description" value="parameters.description" userID="SYL" flexoID="392" />
+        <AddFlexoConceptInstanceParameter id="SYL-393" paramName="scope" value="parameters.scope" userID="SYL" flexoID="393" />
+        <AddFlexoConceptInstanceParameter id="SYL-394" paramName="pattern" value="parameters.pattern" userID="SYL" flexoID="394" />
+        <AddFlexoConceptInstanceParameter id="SYL-436" paramName="requirement" value="parameters.requirement" userID="SYL" flexoID="436" />
+      </AssignableAction_AddFlexoConceptInstance>
+    </BehaviourControlGraph_ReturnStatement>
+    <GenericBehaviourParameter id="SYL-388" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="SYL" flexoID="388" />
+    <GenericBehaviourParameter id="SYL-387" widget="TEXT_FIELD" name="description" type="java.lang.String" userID="SYL" flexoID="387" />
+    <GenericBehaviourParameter id="SYL-435" widget="CUSTOM_WIDGET" name="requirement" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Requirements.fml#Requirement&gt;" userID="SYL" flexoID="435" />
+    <GenericBehaviourParameter id="SYL-413" isRequired="true" widget="CUSTOM_WIDGET" name="scope" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Scope&gt;" userID="SYL" flexoID="413" />
+    <GenericBehaviourParameter id="SYL-414" isRequired="true" widget="CUSTOM_WIDGET" name="pattern" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Pattern&gt;" userID="SYL" flexoID="414" />
+  </ActionScheme>
+  <ActionScheme id="SYL-406" label="createBooleanExpression" name="createBooleanExpression" width="800" height="600" userID="SYL" flexoID="406">
+    <BehaviourControlGraph_ReturnStatement id="SYL-410" userID="SYL" flexoID="410">
+      <AssignableAction_AddFlexoConceptInstance id="SYL-408" creationSchemeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression.create(expression)" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression" receiver="this" userID="SYL" flexoID="408">
+        <AddFlexoConceptInstanceParameter id="SYL-409" paramName="expression" value="parameters.expression" userID="SYL" flexoID="409" />
+      </AssignableAction_AddFlexoConceptInstance>
+    </BehaviourControlGraph_ReturnStatement>
+    <GenericBehaviourParameter id="SYL-415" isRequired="true" widget="CUSTOM_WIDGET" name="expression" type="org.openflexo.connie.DataBinding&lt;java.lang.Boolean&gt;" userID="SYL" flexoID="415" />
+  </ActionScheme>
+  <ActionScheme id="SYL-416" label="createGloballyScope" name="createGloballyScope" width="800" height="600" userID="SYL" flexoID="416">
+    <BehaviourControlGraph_ReturnStatement id="SYL-419" userID="SYL" flexoID="419">
+      <AssignableAction_AddFlexoConceptInstance id="SYL-418" creationSchemeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Globally.create()" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Globally" receiver="this" userID="SYL" flexoID="418" />
+    </BehaviourControlGraph_ReturnStatement>
+  </ActionScheme>
+  <ActionScheme id="SYL-420" label="createBeforeScope" name="createBeforeScope" width="800" height="600" userID="SYL" flexoID="420">
+    <BehaviourControlGraph_ReturnStatement id="SYL-423" userID="SYL" flexoID="423">
+      <AssignableAction_AddFlexoConceptInstance id="SYL-422" creationSchemeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Before.create(expression)" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Before" receiver="this" userID="SYL" flexoID="422">
+        <AddFlexoConceptInstanceParameter id="SYL-431" paramName="expression" value="parameters.expression" userID="SYL" flexoID="431" />
+      </AssignableAction_AddFlexoConceptInstance>
+    </BehaviourControlGraph_ReturnStatement>
+    <GenericBehaviourParameter id="SYL-434" isRequired="true" widget="CUSTOM_WIDGET" name="expression" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression&gt;" userID="SYL" flexoID="434" />
+  </ActionScheme>
+  <ActionScheme id="SYL-520" label="createAfterScope" name="createAfterScope" width="800" height="600" userID="SYL" flexoID="520">
+    <BehaviourControlGraph_ReturnStatement id="SYL-523" userID="SYL" flexoID="523">
+      <AssignableAction_AddFlexoConceptInstance id="SYL-522" creationSchemeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Before.create(expression)" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Before" receiver="this" userID="SYL" flexoID="522">
+        <AddFlexoConceptInstanceParameter id="SYL-632" paramName="expression" value="parameters.expression" userID="SYL" flexoID="632" />
+      </AssignableAction_AddFlexoConceptInstance>
+    </BehaviourControlGraph_ReturnStatement>
+    <GenericBehaviourParameter id="SYL-524" isRequired="true" widget="CUSTOM_WIDGET" name="expression" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression&gt;" userID="SYL" flexoID="524" />
+  </ActionScheme>
+  <ActionScheme id="SYL-547" label="createBetweenScope" name="createBetweenScope" width="800" height="600" userID="SYL" flexoID="547">
+    <BehaviourControlGraph_ReturnStatement id="SYL-549" userID="SYL" flexoID="549">
+      <AssignableAction_AddFlexoConceptInstance id="SYL-548" creationSchemeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Between.create(expression1,expression2)" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Between" receiver="this" userID="SYL" flexoID="548">
+        <AddFlexoConceptInstanceParameter id="SYL-552" paramName="expression1" value="parameters.expression1" userID="SYL" flexoID="552" />
+        <AddFlexoConceptInstanceParameter id="SYL-553" paramName="expression2" value="parameters.expression2" userID="SYL" flexoID="553" />
+      </AssignableAction_AddFlexoConceptInstance>
+    </BehaviourControlGraph_ReturnStatement>
+    <GenericBehaviourParameter id="SYL-550" isRequired="true" widget="CUSTOM_WIDGET" name="expression1" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression&gt;" userID="SYL" flexoID="550" />
+    <GenericBehaviourParameter id="SYL-551" widget="CUSTOM_WIDGET" name="expression2" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression&gt;" userID="SYL" flexoID="551" />
+  </ActionScheme>
+  <ActionScheme id="SYL-635" label="createAfterUntilScope" name="createAfterUntilScope" width="800" height="600" userID="SYL" flexoID="635">
+    <BehaviourControlGraph_ReturnStatement id="SYL-637" userID="SYL" flexoID="637">
+      <AssignableAction_AddFlexoConceptInstance id="SYL-636" creationSchemeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#AfterUntil.create(expression1,expression2)" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#AfterUntil" receiver="this" userID="SYL" flexoID="636">
+        <AddFlexoConceptInstanceParameter id="SYL-640" paramName="expression1" value="parameters.expression1" userID="SYL" flexoID="640" />
+        <AddFlexoConceptInstanceParameter id="SYL-641" paramName="expression2" value="parameters.expression2" userID="SYL" flexoID="641" />
+      </AssignableAction_AddFlexoConceptInstance>
+    </BehaviourControlGraph_ReturnStatement>
+    <GenericBehaviourParameter id="SYL-638" isRequired="true" widget="CUSTOM_WIDGET" name="expression1" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression&gt;" userID="SYL" flexoID="638" />
+    <GenericBehaviourParameter id="SYL-639" widget="CUSTOM_WIDGET" name="expression2" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression&gt;" userID="SYL" flexoID="639" />
+  </ActionScheme>
+  <ActionScheme id="SYL-645" label="createAbsencePattern" name="createAbsencePattern" width="800" height="600" userID="SYL" flexoID="645">
+    <BehaviourControlGraph_ReturnStatement id="SYL-648" userID="SYL" flexoID="648">
+      <AssignableAction_AddFlexoConceptInstance id="SYL-647" creationSchemeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Absence.create(expression)" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Absence" receiver="this" userID="SYL" flexoID="647">
+        <AddFlexoConceptInstanceParameter id="SYL-686" paramName="expression" value="parameters.expression" userID="SYL" flexoID="686" />
+      </AssignableAction_AddFlexoConceptInstance>
+    </BehaviourControlGraph_ReturnStatement>
+    <GenericBehaviourParameter id="SYL-649" isRequired="true" widget="CUSTOM_WIDGET" name="expression" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression&gt;" userID="SYL" flexoID="649" />
+  </ActionScheme>
+  <ActionScheme id="SYL-688" label="createUniversalityPattern" name="createUniversalityPattern" width="800" height="600" userID="SYL" flexoID="688">
+    <BehaviourControlGraph_ReturnStatement id="SYL-690" userID="SYL" flexoID="690">
+      <AssignableAction_AddFlexoConceptInstance id="SYL-689" creationSchemeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Universality.create(expression)" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Universality" receiver="this" userID="SYL" flexoID="689">
+        <AddFlexoConceptInstanceParameter id="SYL-693" paramName="expression" value="parameters.expression" userID="SYL" flexoID="693" />
+      </AssignableAction_AddFlexoConceptInstance>
+    </BehaviourControlGraph_ReturnStatement>
+    <GenericBehaviourParameter id="SYL-691" isRequired="true" widget="CUSTOM_WIDGET" name="expression" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression&gt;" userID="SYL" flexoID="691" />
+  </ActionScheme>
+  <ActionScheme id="SYL-695" label="createExistencePattern" name="createExistencePattern" width="800" height="600" userID="SYL" flexoID="695">
+    <BehaviourControlGraph_ReturnStatement id="SYL-697" userID="SYL" flexoID="697">
+      <AssignableAction_AddFlexoConceptInstance id="SYL-696" creationSchemeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Existence.create(expression)" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Existence" receiver="this" userID="SYL" flexoID="696">
+        <AddFlexoConceptInstanceParameter id="SYL-700" paramName="expression" value="parameters.expression" userID="SYL" flexoID="700" />
+      </AssignableAction_AddFlexoConceptInstance>
+    </BehaviourControlGraph_ReturnStatement>
+    <GenericBehaviourParameter id="SYL-698" isRequired="true" widget="CUSTOM_WIDGET" name="expression" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression&gt;" userID="SYL" flexoID="698" />
+  </ActionScheme>
+  <ActionScheme id="SYL-702" label="createBoundedExistencePattern" name="createBoundedExistencePattern" width="800" height="600" userID="SYL" flexoID="702">
+    <BehaviourControlGraph_ReturnStatement id="SYL-704" userID="SYL" flexoID="704">
+      <AssignableAction_AddFlexoConceptInstance id="SYL-703" creationSchemeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BoundedExistence.create(bounderType,counter,expression)" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BoundedExistence" receiver="this" userID="SYL" flexoID="703">
+        <AddFlexoConceptInstanceParameter id="SYL-709" paramName="bounderType" value="parameters.bounderType" userID="SYL" flexoID="709" />
+        <AddFlexoConceptInstanceParameter id="SYL-710" paramName="counter" value="parameters.counter" userID="SYL" flexoID="710" />
+        <AddFlexoConceptInstanceParameter id="SYL-711" paramName="expression" value="parameters.expression" userID="SYL" flexoID="711" />
+      </AssignableAction_AddFlexoConceptInstance>
+    </BehaviourControlGraph_ReturnStatement>
+    <GenericBehaviourParameter id="SYL-707" widget="TEXT_FIELD" name="bounderType" type="java.lang.String" userID="SYL" flexoID="707" />
+    <GenericBehaviourParameter id="SYL-708" widget="INTEGER" name="counter" type="int" userID="SYL" flexoID="708" />
+    <GenericBehaviourParameter id="SYL-705" isRequired="true" widget="CUSTOM_WIDGET" name="expression" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression&gt;" userID="SYL" flexoID="705" />
+  </ActionScheme>
+  <ActionScheme id="SYL-978" label="createPrecedencePattern" name="createPrecedencePattern" width="800" height="600" userID="SYL" flexoID="978">
+    <BehaviourControlGraph_ReturnStatement id="SYL-981" userID="SYL" flexoID="981">
+      <AssignableAction_AddFlexoConceptInstance id="SYL-980" creationSchemeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Precedence.create(expression1,expression2)" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Precedence" receiver="this" userID="SYL" flexoID="980">
+        <AddFlexoConceptInstanceParameter id="SYL-984" paramName="expression1" value="parameters.expression1" userID="SYL" flexoID="984" />
+        <AddFlexoConceptInstanceParameter id="SYL-985" paramName="expression2" value="parameters.expression2" userID="SYL" flexoID="985" />
+      </AssignableAction_AddFlexoConceptInstance>
+    </BehaviourControlGraph_ReturnStatement>
+    <GenericBehaviourParameter id="SYL-982" isRequired="true" widget="CUSTOM_WIDGET" name="expression1" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression&gt;" userID="SYL" flexoID="982" />
+    <GenericBehaviourParameter id="SYL-983" widget="CUSTOM_WIDGET" name="expression2" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression&gt;" userID="SYL" flexoID="983" />
+  </ActionScheme>
+  <ActionScheme id="SYL-986" label="createResponsePattern" name="createResponsePattern" width="800" height="600" userID="SYL" flexoID="986">
+    <BehaviourControlGraph_ReturnStatement id="SYL-990" userID="SYL" flexoID="990">
+      <AssignableAction_AddFlexoConceptInstance id="SYL-989" creationSchemeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Response.create(expression1,expression2)" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#Response" receiver="this" userID="SYL" flexoID="989">
+        <AddFlexoConceptInstanceParameter id="SYL-995" paramName="expression1" value="parameters.expression1" userID="SYL" flexoID="995" />
+        <AddFlexoConceptInstanceParameter id="SYL-996" paramName="expression2" value="parameters.expression2" userID="SYL" flexoID="996" />
+      </AssignableAction_AddFlexoConceptInstance>
+    </BehaviourControlGraph_ReturnStatement>
+    <GenericBehaviourParameter id="SYL-991" isRequired="true" widget="CUSTOM_WIDGET" name="expression1" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression&gt;" userID="SYL" flexoID="991" />
+    <GenericBehaviourParameter id="SYL-992" widget="CUSTOM_WIDGET" name="expression2" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#BooleanExpression&gt;" userID="SYL" flexoID="992" />
+  </ActionScheme>
+</VirtualModel>

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Panel id="0" align="left" borderTop="0" flowAlignment="LEADING"
+	borderLeft="0" imageFile="../Icons/OnewayBackground.jpg"
+	trackViewPortHeight="true" trackViewPortWidth="true" borderBottom="0"
+	imageWidth="626" border="empty" sizeAdjustment="FitToAvailableSize"
+	imageHeight="417" layout="twocols" vGap="5" borderRight="0" hGap="5"
+	controllerClassName="org.openflexo.module.oneway.view.PropertiesModuleView$PropertiesModuleViewFIBController"
+	name="Panel">
+	<Panel id="1" align="left" borderTop="0" borderTitle="Panel"
+		flowAlignment="CENTER" borderLeft="0" trackViewPortHeight="true"
+		trackViewPortWidth="true" borderBottom="0" border="empty"
+		sizeAdjustment="OriginalSize" layout="flow" vGap="5" borderRight="0"
+		hGap="5"
+		constraints="twocols(anchor=south;expandHorizontally=true;expandVertically=false;fill=both;gridHeight=1;gridWidth=0;gridX=-1;gridY=-1;insetsBottom=0;insetsLeft=10;insetsRight=10;insetsTop=10;location=center;padX=0;padY=0;weightX=1.0;weightY=0.0)"
+		name="FIBPanel2">
+		<Image id="2" imageWidth="80" sizeAdjustment="OriginalSize"
+			align="left" imageHeight="46" data="controller.projectIcon.image"
+			constraints="flow()" name="Image2" />
+		<Label id="3" label="" align="center"
+			data="(data.owner.name + &quot;.prj&quot;)"
+			constraints="flow(anchor=center;fill=horizontal;gridHeight=1;gridWidth=0;gridX=-1;gridY=-1;insetsBottom=0;insetsLeft=10;insetsRight=10;insetsTop=50;location=center;padX=0;padY=0;weightX=1.0;weightY=0.0)"
+			font="ArialMT,0,30" name="Label" />
+	</Panel>
+	<Panel id="4" align="left" borderTop="0" borderTitle="Panel"
+		borderLeft="0" trackViewPortHeight="true" trackViewPortWidth="true"
+		borderBottom="0" border="empty" sizeAdjustment="OriginalSize"
+		layout="twocols" borderRight="0"
+		constraints="twocols(expandHorizontally=true;expandVertically=true;insetsBottom=0;insetsLeft=0;insetsRight=20;insetsTop=10;location=right)"
+		name="FIBPanel">
+		<Browser id="5" backgroundSelectionColor="9,80,208"
+			visibleRowCount="3" boundToSelectionManager="true"
+			backgroundNonSelectionColor="255,255,255"
+			iteratorClassName="org.openflexo.foundation.fml.rt.FlexoConceptInstance"
+			textSelectionColor="255,255,255"
+			backgroundSecondarySelectionColor="178,215,255"
+			showRootsHandle="true" showFooter="true"
+			textNonSelectionColor="0,0,0" root="data"
+			selectionMode="DiscontiguousTreeSelection" rowHeight="18"
+			manageDynamicModel="true"
+			rightClickAction="controller.rightClick(MainBrowser.selected,event)"
+			doubleClickAction="controller.doubleClick(MainBrowser.selected)"
+			clickAction="controller.singleClick(MainBrowser.selected)"
+			constraints="twocols(expandHorizontally=true;expandVertically=true;insetsBottom=0;insetsLeft=20;insetsRight=0;insetsTop=0;location=left)"
+			height="200" width="300" name="MainBrowser">
+			<BrowserElement id="6"
+				dataClassName="org.openflexo.module.oneway.model.OnewayProjectNature"
+				icon="controller.iconForObject(onewayView)" label="onewayView.name"
+				isEditable="false" defaultVisible="false" name="nature">
+				<Children id="7"
+					data="onewayView.requirements.projectElement" name="rootElement" />
+			</BrowserElement>
+			<BrowserElement id="8"
+				dataClassName="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Requirements.fml#Element&gt;"
+				icon="controller.iconForObject(element)" label="element.identifier"
+				isEditable="false" defaultVisible="false" name="element">
+				<Children id="9" data="element.childrenElements"
+					name="childElements" />
+				<Children id="10" data="element.requirements"
+					name="requirements" />
+				<Children id="11" data="element.processDefinitions"
+					name="processDefinitions" />
+			</BrowserElement>
+			<BrowserElement id="12"
+				dataClassName="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Requirements.fml#Requirement&gt;"
+				icon="controller.iconForObject(requirement)"
+				label="requirement.name" isEditable="false" defaultVisible="false"
+				name="requirement" />
+			<BrowserElement id="13"
+				dataClassName="org.openflexo.foundation.fml.VirtualModelInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml&gt;"
+				icon="controller.iconForObject(processDefinition)"
+				label="processDefinition.name" isEditable="false"
+				defaultVisible="false" name="processDefinition" />
+		</Browser>
+		<Panel id="14" align="left" borderTop="0" borderTitle="Panel"
+			borderLeft="0" trackViewPortHeight="true" trackViewPortWidth="true"
+			cols="1" borderBottom="0" border="empty"
+			sizeAdjustment="OriginalSize" rows="2" layout="grid" vGap="5"
+			borderRight="0" hGap="5"
+			constraints="twocols(expandHorizontally=true;expandVertically=true;insetsBottom=0;insetsLeft=10;insetsRight=0;insetsTop=0;location=right)"
+			name="Panel2">
+			<Panel id="15" align="left" borderTop="0" borderTitle="Panel"
+				borderLeft="0" trackViewPortHeight="true" trackViewPortWidth="true"
+				borderBottom="0" border="empty" sizeAdjustment="OriginalSize"
+				layout="border" borderRight="0"
+				constraints="grid(anchor=south;expandHorizontally=true;expandVertically=false;fill=both;gridHeight=1;gridWidth=0;gridX=-1;gridY=-1;insetsBottom=0;insetsLeft=10;insetsRight=10;insetsTop=10;location=center;padX=0;padY=0;weightX=1.0;weightY=0.0;x=0;y=0)"
+				name="Panel3">
+				<Table id="16" backgroundSelectionColor="9,80,208"
+					visibleRowCount="3" boundToSelectionManager="true"
+					backgroundNonSelectionColor="255,255,255"
+					iteratorClassName="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#AtomicProposition&gt;"
+					textSelectionColor="255,255,255"
+					backgroundSecondarySelectionColor="178,215,255"
+					textSecondarySelectionColor="0,0,0" lookAndFeel="FlatDesign"
+					textNonSelectionColor="0,0,0"
+					selectionMode="MultipleIntervalSelection" rowHeight="18"
+					manageDynamicModel="true"
+					data="((processDefinition != null) ? onewayView.getProcessProperties(processDefinition).atomicPropositions : null)"
+					constraints="border(anchor=south;expandHorizontally=true;expandVertically=false;fill=both;gridHeight=1;gridWidth=0;gridX=-1;gridY=-1;insetsBottom=0;insetsLeft=10;insetsRight=10;insetsTop=10;location=north;padX=0;padY=0;weightX=1.0;weightY=0.0)"
+					name="Table">
+					<IconColumn id="17"
+						data="controller.iconForObject(iterator)" resizable="false"
+						title="icon" displayTitle="false" columnWidth="20"
+						showIcon="false" name="icon" />
+					<LabelColumn id="18" data="iterator.identifier"
+						resizable="true" title="atomic_proposition" displayTitle="true"
+						columnWidth="100" showIcon="false" name="idColumn" />
+					<LabelColumn id="19"
+						data="iterator.expressionProperty.toString" resizable="true"
+						title="expression" displayTitle="true" columnWidth="250"
+						showIcon="false" name="expressionColumn" />
+					<AddAction id="20"
+						isAvailable="((processDefinition != null) ? (onewayView.getProcessProperties(processDefinition) != null) : false)"
+						method="controller.createAtomicProposition(onewayView.getProcessProperties(processDefinition))"
+						name="add_action" />
+				</Table>
+			</Panel>
+			<Panel id="21" align="left" borderTop="0" borderTitle="Panel"
+				borderLeft="0" trackViewPortHeight="true" trackViewPortWidth="true"
+				borderBottom="0" border="empty" sizeAdjustment="OriginalSize"
+				layout="border" borderRight="0"
+				constraints="grid(anchor=south;expandHorizontally=true;expandVertically=false;fill=both;gridHeight=1;gridWidth=0;gridX=-1;gridY=-1;insetsBottom=0;insetsLeft=10;insetsRight=10;insetsTop=10;location=center;padX=0;padY=0;weightX=1.0;weightY=0.0;x=0;y=1)"
+				name="Panel4">
+				<Table id="22" backgroundSelectionColor="9,80,208"
+					visibleRowCount="3" boundToSelectionManager="true"
+					backgroundNonSelectionColor="255,255,255"
+					iteratorClassName="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml#AtomicProposition&gt;"
+					textSelectionColor="255,255,255"
+					backgroundSecondarySelectionColor="178,215,255"
+					textSecondarySelectionColor="0,0,0" lookAndFeel="FlatDesign"
+					textNonSelectionColor="0,0,0"
+					selectionMode="MultipleIntervalSelection" rowHeight="18"
+					manageDynamicModel="true"
+					data="((processDefinition != null) ? onewayView.getProcessProperties(processDefinition).properties : null)"
+					constraints="border(anchor=south;expandHorizontally=true;expandVertically=false;fill=both;gridHeight=1;gridWidth=0;gridX=-1;gridY=-1;insetsBottom=0;insetsLeft=10;insetsRight=10;insetsTop=10;location=north;padX=0;padY=0;weightX=1.0;weightY=0.0)"
+					name="Table2">
+					<IconColumn id="23"
+						data="controller.iconForObject(iterator)" resizable="false"
+						title="icon" displayTitle="false" columnWidth="20"
+						showIcon="false" name="icon" />
+					<LabelColumn id="24" data="iterator.name"
+						resizable="true" title="property" displayTitle="true"
+						columnWidth="100" showIcon="false" name="nameColumn" />
+					<LabelColumn id="25" data="iterator.toString"
+						resizable="true" title="expression" displayTitle="true"
+						columnWidth="250" showIcon="false" name="expressionColumn" />
+					<AddAction id="26"
+						isAvailable="((processDefinition != null) ? (onewayView.getProcessProperties(processDefinition) != null) : false)"
+						method="controller.createProperty(onewayView.getProcessProperties(processDefinition))"
+						name="add_action" />
+				</Table>
+			</Panel>
+		</Panel>
+	</Panel>
+	<Panel id="27" align="left" borderTop="0" borderTitle="Panel"
+		flowAlignment="CENTER" borderLeft="0" trackViewPortHeight="true"
+		trackViewPortWidth="true" borderBottom="0" border="empty"
+		sizeAdjustment="OriginalSize" layout="flow" vGap="5" borderRight="0"
+		hGap="5"
+		constraints="twocols(anchor=east;expandHorizontally=true;expandVertically=false;fill=both;gridHeight=-1;gridWidth=0;gridX=-1;gridY=-1;insetsBottom=10;insetsLeft=20;insetsRight=20;insetsTop=10;location=center;padX=0;padY=0;weightX=1.0;weightY=0.1)"
+		name="FIBPanel">
+		<Button id="28" buttonType="Trigger"
+			action="controller.createAtomicProposition(onewayView.getProcessProperties(processDefinition))"
+			label="new_atomic_proposition" localize="true"
+			enable="(processDefinition != null)" constraints="flow()"
+			name="Button2" />
+		<Button id="29" buttonType="Trigger"
+			action="controller.createProperty(onewayView.getProcessProperties(processDefinition))"
+			label="new_property" localize="true"
+			enable="(processDefinition != null)" constraints="flow()"
+			name="Button2" />
+	</Panel>
+	<LocalizedDictionary id="30">
+		<Localized id="31" lang="English" value="Description"
+			key="description" />
+		<Localized id="32" lang="Dutch" value="Description"
+			key="description" />
+		<Localized id="33" lang="French" value="Description"
+			key="description" />
+		<Localized id="34" lang="English" value="Icon" key="icon" />
+		<Localized id="35" lang="Dutch" value="Icon" key="icon" />
+		<Localized id="36" lang="French" value="Icône" key="icon" />
+		<Localized id="37" lang="English" value="Element"
+			key="element" />
+		<Localized id="38" lang="Dutch" value="Element"
+			key="element" />
+		<Localized id="39" lang="French" value="Element"
+			key="element" />
+		<Localized id="40" lang="English" value="Elements"
+			key="elements" />
+		<Localized id="41" lang="Dutch" value="elements"
+			key="elements" />
+		<Localized id="42" lang="French" value="Eléments"
+			key="elements" />
+		<Localized id="43" lang="English" value="Requirement"
+			key="requirement" />
+		<Localized id="44" lang="Dutch" value="Requirement"
+			key="requirement" />
+		<Localized id="45" lang="French" value="Exigence"
+			key="requirement" />
+		<Localized id="46" lang="English" value="Status"
+			key="status" />
+		<Localized id="47" lang="Dutch" value="Status" key="status" />
+		<Localized id="48" lang="French" value="Statut" key="status" />
+		<Localized id="49" lang="English" value="Create element"
+			key="create_element" />
+		<Localized id="50" lang="Dutch" value="create_element"
+			key="create_element" />
+		<Localized id="51" lang="French" value="Créer un élément"
+			key="create_element" />
+		<Localized id="52" lang="English" value="Create requirement"
+			key="create_requirement" />
+		<Localized id="53" lang="Dutch" value="create_requirement"
+			key="create_requirement" />
+		<Localized id="54" lang="French" value="Créer une exigence"
+			key="create_requirement" />
+		<Localized id="55" lang="English" value="Create sub-element"
+			key="create_sub_element" />
+		<Localized id="56" lang="Dutch" value="create_sub_element"
+			key="create_sub_element" />
+		<Localized id="57" lang="French"
+			value="Créer un sous-élément" key="create_sub_element" />
+		<Localized id="58" lang="English" value="Atomic proposition"
+			key="atomic_proposition" />
+		<Localized id="59" lang="Dutch" value="Atomic proposition"
+			key="atomic_proposition" />
+		<Localized id="60" lang="French"
+			value="Proposition atomique" key="atomic_proposition" />
+		<Localized id="61" lang="English" value="Expression"
+			key="expression" />
+		<Localized id="62" lang="Dutch" value="Expression"
+			key="expression" />
+		<Localized id="63" lang="French" value="Expression"
+			key="expression" />
+		<Localized id="64" lang="English" value="Add action"
+			key="add_action" />
+		<Localized id="65" lang="Dutch" value="Add action"
+			key="add_action" />
+		<Localized id="66" lang="French" value="add_action"
+			key="add_action" />
+		<Localized id="67" lang="English" value="Property"
+			key="property" />
+		<Localized id="68" lang="Dutch" value="Property"
+			key="property" />
+		<Localized id="69" lang="French" value="Propriété"
+			key="property" />
+		<Localized id="70" lang="English"
+			value="New atomic proposition" key="new_atomic_proposition" />
+		<Localized id="71" lang="Dutch"
+			value="New atomic proposition" key="new_atomic_proposition" />
+		<Localized id="72" lang="French"
+			value="Nouvelle proposition atomique" key="new_atomic_proposition" />
+		<Localized id="73" lang="English" value="New property"
+			key="new_property" />
+		<Localized id="74" lang="Dutch" value="New property"
+			key="new_property" />
+		<Localized id="75" lang="French" value="Nouvelle propriété"
+			key="new_property" />
+	</LocalizedDictionary>
+	<FIBVariable id="76"
+		type="org.openflexo.module.oneway.model.OnewayProjectNature"
+		name="data" />
+	<FIBVariable id="77"
+		type="org.openflexo.foundation.fml.VirtualModelInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml&gt;"
+		name="onewayView" />
+	<FIBVariable id="78"
+		type="org.openflexo.foundation.fml.VirtualModelInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml&gt;"
+		value="MainBrowser.selected" name="processDefinition" />
+</Panel>

@@ -1,0 +1,25 @@
+
+/**
+ * 
+ * @version 0.1
+ */
+@VirtualModel(uri="http://ensta-bretagne.fr/oneway/DocumentLibrary.fml/AbstractDocument.fml")
+public class AbstractDocument {
+
+  public String documentName;
+  public String documentDescription;
+
+  /**  
+   * We define reference as a portion of a document (which can be of various formats)  
+   *   
+   */  
+  @FlexoConcept  
+  public class Reference {  
+  
+      
+    abstract String rawText;  
+      
+    abstract String preview;  
+  }  
+
+}

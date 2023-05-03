@@ -1,0 +1,54 @@
+use org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstanceModelSlot;
+
+/**
+ * 
+ * @author montheva
+ * @version 0.1
+ */
+@VirtualModel(uri="http://ensta-bretagne.fr/oneway/Oneway.fml")
+public class Oneway {
+
+  public List processDefinitions;
+  public String projectName;
+  public String projectDescription;
+  public Requirements requirements;
+  public DocumentAnnotations docAnnotations;
+  public Properties properties;
+
+  @CreationScheme  
+  Oneway:init(String projectName, String projectDescription) {  
+    log "Init Oneway"    
+    projectName = parameters.projectName;    
+    projectDescription = parameters.projectDescription;    
+    requirements = Requirements.init(parameters.projectName);    
+    docAnnotations = DocumentAnnotations.create();    
+    properties = Properties.init();  
+  }  
+
+  @ActionScheme  
+  Void importBPMNProcess(Element element, FlexoResource bpmnDocumentResource, String bpmnName, String bpmnDescription) {  
+    log ((("Create BPMN for " + parameters.element) + " and ") + parameters.bpmnDocumentResource)    
+    ProcessDefinition newProcessDefinition = ProcessDefinition.init(parameters.element,parameters.bpmnDocumentResource,parameters.bpmnName,parameters.bpmnDescription);    
+    log ("ProcessDefinition=" + newProcessDefinition)    
+    processDefinitions.add(newProcessDefinition)    
+    parameters.element.firePropertyChange processDefinitions    
+    ProcessProperties.init(newProcessDefinition)  
+  }  
+
+  @ActionScheme  
+  List<ProcessDefinition> getProcessDefinitions(Element element) {  
+    return this.FML@RT::SelectVirtualModelInstance where=(selected.element = parameters.element);  
+  }  
+
+  @ActionScheme  
+  ProcessProperties getProcessProperties(ProcessDefinition processDefinition) {  
+    return properties.FML@RT::SelectUniqueVirtualModelInstance where=(selected.processDefinition = parameters.processDefinition);  
+  }  
+
+  @DeletionScheme  
+  Void delete() {  
+    projectName = null;    
+    projectDescription = null;  
+  }  
+
+}

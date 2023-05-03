@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Panel id="0" align="left" borderTop="0" borderLeft="0"
+	trackViewPortHeight="true" trackViewPortWidth="true" borderBottom="0"
+	border="empty" sizeAdjustment="OriginalSize" layout="twocols"
+	borderRight="0"
+	controllerClassName="org.openflexo.module.oneway.widget.BPMNBrowser$BPMNBrowserFIBController">
+	<Browser id="1" backgroundSelectionColor="9,80,208"
+		visibleRowCount="5" boundToSelectionManager="true"
+		backgroundNonSelectionColor="255,255,255" iteratorClassName="java.lang.Object"
+		textSelectionColor="255,255,255" backgroundSecondarySelectionColor="178,215,255"
+		showRootsHandle="true" showFooter="true" textNonSelectionColor="0,0,0"
+		root="data" selectionMode="DiscontiguousTreeSelection"
+		rootVisible="true" rowHeight="18" localize="true" manageDynamicModel="true"
+		rightClickAction="controller.rightClick(FormoseProjectBrowser.selected,event)"
+		doubleClickAction="controller.doubleClick(FormoseProjectBrowser.selected)"
+		clickAction="controller.singleClick(FormoseProjectBrowser.selected)"
+		index="0"
+		constraints="twocols(expandHorizontally=true;expandVertically=true;index=0;insetsBottom=0;insetsLeft=2;insetsRight=2;insetsTop=0;location=center)"
+		name="FormoseProjectBrowser">
+  		<BrowserElement
+			dataClassName="org.openflexo.module.oneway.model.OnewayProjectNature"
+			icon="controller.iconForObject(onewayView)" label="onewayView.name"
+			isEditable="false" defaultVisible="false" name="nature">
+			<Children data="onewayView.requirements.projectElement"
+				name="rootElement"/>
+		</BrowserElement>
+		<BrowserElement 
+			dataClassName="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Requirements#Element&gt;"
+			icon="controller.iconForObject(element)" label="element.identifier"
+			isEditable="false" defaultVisible="false" name="element">
+			<Children data="element.childrenElements" name="childElements"/>
+			<Children data="element.requirements" name="requirements"/>
+			<Children data="element.processDefinitions" name="processDefinitions"/>
+		</BrowserElement>
+		<BrowserElement 
+			dataClassName="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Requirements#Requirement&gt;"
+			icon="controller.iconForObject(requirement)" label="requirement.name"
+			isEditable="false" defaultVisible="false" name="requirement">
+		</BrowserElement>
+		
+		<BrowserElement
+			dataClassName="org.openflexo.foundation.fml.VirtualModelInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml&gt;"
+			icon="controller.iconForObject(processDefinition)" label="processDefinition.name"
+			isEditable="false" defaultVisible="false" name="processDefinition">
+			<Children data="processDefinition.diagrams" name="diagrams"/>
+		</BrowserElement>
+
+		<BrowserElement
+			dataClassName="org.openflexo.foundation.fml.VirtualModelInstanceType&lt;http://openflexo.org/modellers/resources/BPMN/FML/BPMNEditor.fml/ProcessDiagram.fml&gt;"
+			icon="controller.iconForObject(diagram)" label="diagram.process.processName"
+			isEditable="false" defaultVisible="false" name="diagram">
+		</BrowserElement>
+		
+<!--  		<BrowserElement 
+			dataClassName="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/SysMLKaos-Methodology.fml#DiagramMapping&gt;"
+			icon="controller.iconForObject(diagramMapping)" label="diagramMapping.diagramTitle"
+			isEditable="false" name="diagramMapping">
+		</BrowserElement> -->
+	</Browser>
+	<FIBVariable id="64"
+		type="org.openflexo.module.oneway.model.OnewayProjectNature" name="data" />
+	<FIBVariable id="65"
+		type="org.openflexo.foundation.fml.VirtualModelInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml&gt;"
+		value="data.onewayInstance.accessedVirtualModelInstance" name="onewayView" />
+	<LocalizedDictionary id="66" />
+</Panel>

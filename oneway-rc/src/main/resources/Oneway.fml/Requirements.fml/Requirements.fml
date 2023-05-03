@@ -1,0 +1,179 @@
+use org.openflexo.technologyadapter.gina.FIBComponentModelSlot;
+use org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstanceModelSlot;
+use org.openflexo.technologyadapter.docx.DocXModelSlot;
+
+/**
+ * 
+ * @version 0.1
+ */
+@VirtualModel(uri="http://ensta-bretagne.fr/oneway/Oneway.fml/Requirements.fml")
+public class Requirements {
+
+  @GetSetProperty(value="allElements", access=get)  
+  public List<Element> getAllElements {  
+    return this.SelectFlexoConceptInstance(type=Element);  
+  }
+  public Element projectElement;
+
+  @ActionScheme  
+  Void addElement() {  
+    Element.createElement("elementTODO")  
+  }  
+
+  @DeletionScheme  
+  Void delete() {  
+  
+  }  
+
+  @ActionScheme  
+  Void removeElement(Element element) {  
+    parameters.element.delete();  
+  }  
+
+  @CreationScheme  
+  Requirements:init(String projectName) {  
+    projectElement = Element.createElement("Project");    
+    this.firePropertyChange projectElement  
+  }  
+
+
+  @FlexoConcept  
+  public class Element {  
+  
+    public String identifier;  
+    public List childrenElements;  
+    public String description;  
+    public Element parent;  
+    public GINAFIBComponent ui;  
+    @GetSetProperty(value="requirements", access=get)    
+    public List<Requirement> getRequirements {    
+      return container.SelectFlexoConceptInstance(type=Requirement);    
+    }  
+      
+    public List<ProcessDefinition> processDefinitions = container.container.getProcessDefinitions(this);  
+  
+    @CreationScheme    
+    Element:createElement(String elementIdentifier) {    
+      identifier = parameters.elementIdentifier;      
+      ui = ui.ConfigureGINAFIBComponent();    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+    @ActionScheme    
+    Element createChildrenElement(String elementIdentifier, String elementDescription) {    
+      log ("Creating new element " + parameters.elementIdentifier)      
+      Element newElement = Element.createElement(parameters.elementIdentifier);      
+      newElement.description = parameters.elementDescription;      
+      newElement.parent = this;      
+      childrenElements.add(newElement)      
+      NewElement event = fireEvent NewElement;      
+      log ((("Firing event " + event) + " from ") + container)      
+      return newElement;    
+    }    
+  
+    @ActionScheme    
+    Requirement createRequirement(String name, String description) {    
+      log ("Creating new requirement " + parameters.name)      
+      log ("Description for new requirement " + parameters.description)      
+      Requirement newRequirement = Requirement.createRequirement(parameters.name,parameters.description);      
+      this.firePropertyChange requirements      
+      log ((("On declenche NewRequirement " + newRequirement) + " dans ") + newRequirement.container)      
+      fireEvent NewRequirement      
+      return newRequirement;    
+    }    
+  
+    @ActionScheme    
+    Requirement createRequirementNoNotification(String name, String description) {    
+      Requirement newRequirement = Requirement.createRequirement(parameters.name,parameters.description);      
+      this.firePropertyChange requirements      
+      return newRequirement;    
+    }    
+  
+  
+    @FlexoConcept    
+    public class Requirement {    
+      
+      public String name;    
+      public String description;    
+      public String status;    
+      public String semantic;    
+      
+      @CreationScheme      
+      Requirement:createRequirement(String name, String description) {      
+        log ("*********** Create new requirement " + parameters.name)        
+        name = parameters.name;        
+        description = parameters.description;        
+        container.firePropertyChange requirements      
+      }      
+      
+      @DeletionScheme      
+      public Void delete() {      
+        container.firePropertyChange requirements      
+      }      
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class Requirement {  
+  
+    public String name;  
+    public String description;  
+    public String status;  
+    public String semantic;  
+  
+    @CreationScheme    
+    Requirement:createRequirement(String name, String description) {    
+      log ("*********** Create new requirement " + parameters.name)      
+      name = parameters.name;      
+      description = parameters.description;      
+      container.firePropertyChange requirements    
+    }    
+  
+    @DeletionScheme    
+    public Void delete() {    
+      container.firePropertyChange requirements    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class NewRequirement {  
+  
+    public Requirement requirement;  
+  
+    @CreationScheme    
+    NewRequirement:create(Requirement aRequirement) {    
+      requirement = parameters.aRequirement;    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class NewElement {  
+  
+    public Element element;  
+  
+    @CreationScheme    
+    NewElement:create(Element anElement) {    
+      element = parameters.anElement;    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+}

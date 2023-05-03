@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Panel id="0" align="left" borderTop="0" borderLeft="0"
+	trackViewPortHeight="true" trackViewPortWidth="true" borderBottom="0"
+	border="empty" sizeAdjustment="OriginalSize" layout="twocols"
+	borderRight="0"
+	controllerClassName="org.openflexo.module.oneway.widget.AbstractOnewayProjectBrowser$OnewayProjectBrowserFIBController">
+	<Browser id="1" backgroundSelectionColor="9,80,208"
+		visibleRowCount="5" boundToSelectionManager="true"
+		backgroundNonSelectionColor="255,255,255" iteratorClassName="java.lang.Object"
+		textSelectionColor="255,255,255" backgroundSecondarySelectionColor="178,215,255"
+		showRootsHandle="true" showFooter="true" textNonSelectionColor="0,0,0"
+		root="onewayView.docAnnotations.documentLibrary"
+		selectionMode="DiscontiguousTreeSelection" rootVisible="true"
+		rowHeight="18" localize="true" manageDynamicModel="true"
+		rightClickAction="controller.rightClick(FormoseProjectBrowser.selected,event)"
+		doubleClickAction="controller.doubleClick(FormoseProjectBrowser.selected)"
+		clickAction="controller.singleClick(FormoseProjectBrowser.selected)"
+		index="0"
+		constraints="twocols(expandHorizontally=true;expandVertically=true;index=0;insetsBottom=0;insetsLeft=2;insetsRight=2;insetsTop=0;location=center)"
+		name="FormoseProjectBrowser">
+		<BrowserElement id="2"
+			dataClassName="org.openflexo.foundation.fml.VirtualModelInstanceType&lt;http://ensta-bretagne.fr/oneway/DocumentLibrary.fml&gt;"
+			icon="controller.iconForObject(documentLibrary)" label="onewayView.projectName"
+			isEditable="false" defaultVisible="false" name="documentLibrary">
+			<Children id="3" data="documentLibrary.documents" name="children" />
+		</BrowserElement>
+		<BrowserElement id="27"
+			dataClassName="org.openflexo.foundation.fml.VirtualModelInstanceType&lt;http://ensta-bretagne.fr/oneway/DocumentLibrary.fml/AbstractDocument&gt;"
+			icon="controller.iconForObject(document)" label="document.documentName"
+			isEditable="false" name="document" />
+	</Browser>
+	<FIBVariable id="28"
+		type="org.openflexo.module.oneway.model.OnewayProjectNature" name="data" />
+	<FIBVariable id="54"
+		type="org.openflexo.foundation.fml.VirtualModelInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml&gt;"
+		value="data.onewayInstance.accessedVirtualModelInstance" name="onewayView" />
+	<LocalizedDictionary id="30" />
+</Panel>

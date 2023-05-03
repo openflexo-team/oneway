@@ -1,0 +1,142 @@
+
+/**
+ * 
+ * @author montheva
+ * @version 0.1
+ */
+@VirtualModel(uri="http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml/ProcessExecution.fml")
+public class ProcessExecution {
+
+  public String processName;
+  public ElementStatusType status;
+  public List tokens;
+
+  @ActionScheme  
+  Void getTokens() {  
+  
+  }  
+
+  @ActionScheme  
+  Void getStatus() {  
+  
+  }  
+
+  @ActionScheme  
+  List<Token> getTokensByType(ElementType elementType) {  
+    return this.tokens;  
+  }  
+
+  @ActionScheme  
+  Void getActiveElements() {  
+  
+  }  
+
+  @ActionScheme  
+  Void noTokenPresent() {  
+  
+  }  
+
+  @ActionScheme  
+  Void noTokenPresentBeforeEnd() {  
+  
+  }  
+
+  @ActionScheme  
+  Void noMultiTokensElement() {  
+  
+  }  
+
+  @ActionScheme  
+  Void noMultiTokensElement(FlowElementDefinition elementType) {  
+  
+  }  
+
+  @ActionScheme  
+  Void isActive(FlowElementDefinition element) {  
+    return this.aTokensExistOnElement(null);  
+  }  
+
+  @ActionScheme  
+  Void aTokensExistOnElement(FlowElementDefinition element) {  
+  
+  }  
+
+  @ActionScheme  
+  Void isEmitted(FlowNodeDefinition event) {  
+    return this.aTokensExistOnElement(null);  
+  }  
+
+  @ActionScheme  
+  Void hasBeenRunned(FlowNodeDefinition activity) {  
+  
+  }  
+
+  @ActionScheme  
+  Boolean isRunning() {  
+    return (!(this.noTokenPresentBeforeEnd()));  
+  }  
+
+  @ActionScheme  
+  Boolean isRunning_2() {  
+    return ((this.getTokensByType(null).size() = 0) & (this.tokens.size > 0));  
+  }  
+
+  @ActionScheme  
+  Boolean isEnded() {  
+    return ((this.getTokensByType(null).size() > 0) & this.noTokenPresentBeforeEnd());  
+  }  
+
+  @ActionScheme  
+  Boolean isProperCompleted() {  
+    return (this.isEnded() & this.noMultiTokensElement(null));  
+  }  
+
+  @ActionScheme  
+  Void isSafeState() {  
+    return this.noMultiTokensElement(null);  
+  }  
+
+  @ActionScheme  
+  Boolean isCleared() {  
+    return (!(this.noTokenPresentBeforeEnd()));  
+  }  
+
+  @ActionScheme  
+  List<Token> getEntriesTokens(FlowElementDefinition element) {  
+    return this.tokens;  
+  }  
+
+  @ActionScheme  
+  Boolean canRun(FlowNodeDefinition activity) {  
+    return (this.getEntriesTokens(null).size() > 0);  
+  }  
+
+  @ActionScheme  
+  Boolean isStarted() {  
+    return this.isRunning();  
+  }  
+
+
+  @FlexoConcept  
+  public class Token {  
+  
+    public FlowElementDefinition element;  
+  
+    @CreationScheme    
+    Token:create() {    
+      
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+    @ActionScheme    
+    Void getElement() {    
+      
+    }    
+  
+  }  
+
+}

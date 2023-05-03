@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Panel id="0" align="left" borderTop="0" borderLeft="0"
+	trackViewPortHeight="true" trackViewPortWidth="true" borderBottom="0"
+	border="empty" sizeAdjustment="OriginalSize" layout="twocols"
+	borderRight="0"
+	controllerClassName="org.openflexo.module.oneway.widget.ProcessBrowser$ProcessBrowserFIBController">
+	<Browser id="1" backgroundSelectionColor="9,80,208"
+		visibleRowCount="5" boundToSelectionManager="true"
+		backgroundNonSelectionColor="255,255,255" iteratorClassName="java.lang.Object"
+		textSelectionColor="255,255,255" backgroundSecondarySelectionColor="178,215,255"
+		showRootsHandle="true" showFooter="true" textNonSelectionColor="0,0,0"
+		root="data" selectionMode="DiscontiguousTreeSelection"
+		rootVisible="true" rowHeight="18" localize="true" manageDynamicModel="true"
+		rightClickAction="controller.rightClick(ProcessBrowser.selected,event)"
+		doubleClickAction="controller.doubleClick(ProcessBrowser.selected)"
+		clickAction="controller.singleClick(ProcessBrowser.selected)"
+		index="0"
+		constraints="twocols(expandHorizontally=true;expandVertically=true;index=0;insetsBottom=0;insetsLeft=2;insetsRight=2;insetsTop=0;location=center)"
+		name="ProcessBrowser">
+		<BrowserElement 
+			dataClassName="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://openflexo.org/modellers/resources/BPMN/FML/BPMNEditor.fml/BPMNModel.fml#Process&gt;"
+			icon="controller.iconForObject(process)" label="process.processName"
+			isEditable="false" defaultVisible="false" name="process">
+			<Children data="process.elements" name="elements"/>
+		</BrowserElement>
+		<BrowserElement 
+			dataClassName="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://openflexo.org/modellers/resources/BPMN/FML/BPMNEditor.fml/BPMNModel.fml#FlowElement&gt;"
+			icon="controller.iconForObject(element)" label="element.toString"
+			isEditable="false" defaultVisible="false" name="element">
+		</BrowserElement>
+	</Browser>
+	<FIBVariable id="65"
+		type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://openflexo.org/modellers/resources/BPMN/FML/BPMNEditor.fml/BPMNModel.fml#Process&gt;"
+		name="data" />
+	<LocalizedDictionary id="66" />
+</Panel>

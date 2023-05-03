@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Panel id="0" align="left" borderTop="0" flowAlignment="LEADING"
+	borderLeft="0" imageFile="../Icons/OnewayBackground.jpg"
+	trackViewPortHeight="true" trackViewPortWidth="true" borderBottom="0"
+	border="empty" imageWidth="626" sizeAdjustment="FitToAvailableSize"
+	imageHeight="417" layout="gridbag" vGap="5" borderRight="0" hGap="5">
+	<Panel id="1" align="left" borderTop="0" borderTitle="Panel"
+		flowAlignment="CENTER" borderLeft="0" trackViewPortHeight="true"
+		trackViewPortWidth="true" borderBottom="0" border="empty"
+		sizeAdjustment="OriginalSize" layout="flow" vGap="5" borderRight="0"
+		hGap="5"
+		constraints="gridbag(anchor=south;fill=both;gridHeight=1;gridWidth=0;gridX=-1;gridY=-1;insetsBottom=0;insetsLeft=10;insetsRight=10;insetsTop=50;location=center;padX=0;padY=0;weightX=1.0;weightY=0.0)"
+		height="200" width="100" name="FIBPanel2">
+		<Image id="2" imageWidth="200" sizeAdjustment="OriginalSize"
+			imageFile="../Icons/OnewayLogo_128x128.png" align="left"
+			imageHeight="46" constraints="flow()" name="Image2" />
+	</Panel>
+	<!--  <Image id="3" imageWidth="80" sizeAdjustment="AdjustHeight"
+		imageFile="../Icons/OnewayIllustration.png" align="right"
+		imageHeight="300"
+		constraints="gridbag(anchor=east;fill=vertical;gridHeight=1;gridWidth=1;gridX=-1;gridY=-1;insetsBottom=0;insetsLeft=50;insetsRight=0;insetsTop=20;padX=0;padY=0;weightX=0.0;weightY=1.0)"
+		name="Image" />-->
+	<Label id="4" label="welcome_informations" align="left"
+		localize="true"
+		constraints="gridbag(anchor=center;fill=horizontal;gridHeight=1;gridWidth=0;gridX=-1;gridY=-1;insetsBottom=0;insetsLeft=20;insetsRight=30;insetsTop=20;padX=0;padY=0;weightX=1.0;weightY=1.0)"
+		opaque="false" name="Label2" />
+	<Panel id="5" align="left" borderTop="0" flowAlignment="CENTER"
+		borderLeft="0" trackViewPortHeight="true" trackViewPortWidth="true"
+		borderBottom="0" border="empty" sizeAdjustment="OriginalSize"
+		layout="flow" vGap="5" borderRight="0" hGap="10"
+		constraints="gridbag(anchor=center;fill=both;gridHeight=1;gridWidth=0;gridX=-1;gridY=-1;insetsBottom=0;insetsLeft=0;insetsRight=0;insetsTop=0;padX=0;padY=0;weightX=1.0;weightY=1.0)"
+		height="100" width="100" name="FIBPanel3">
+		<Image id="6" imageWidth="120" sizeAdjustment="AdjustWidth"
+			imageFile="../Icons/LogoAirbus.png" align="left" imageHeight="46"
+			constraints="flow()" name="Image3" />
+		<Image id="7" imageWidth="80" sizeAdjustment="AdjustWidth"
+			imageFile="../Icons/LogoENSTA.png" align="left" imageHeight="56"
+			constraints="flow()" name="Image4" />
+		<Image id="8" imageWidth="80" sizeAdjustment="AdjustWidth"
+			imageFile="../Icons/LogoPragmadev.png" align="left" imageHeight="46"
+			constraints="flow()" name="Image5" />
+		<Image id="9" imageWidth="60" sizeAdjustment="AdjustWidth"
+			imageFile="../Icons/LogoIMTAles.png" align="left" imageHeight="46"
+			constraints="flow()" name="Image6" />
+		<Image id="10" imageWidth="60" sizeAdjustment="AdjustWidth"
+			imageFile="../Icons/LogoUR1.png" align="left"
+			imageHeight="46" constraints="flow()" name="Image7" />
+		<Image id="11" imageWidth="80" sizeAdjustment="AdjustWidth"
+			imageFile="../Icons/LogoCIMPA.png" align="left" imageHeight="46"
+			constraints="flow()" name="Image8" />
+	</Panel>
+	<Panel id="13" align="left" borderTop="0" borderTitle="Panel"
+		flowAlignment="CENTER" borderLeft="0" trackViewPortHeight="true"
+		trackViewPortWidth="true" borderBottom="0" border="empty"
+		sizeAdjustment="OriginalSize" layout="flow" vGap="5" borderRight="0"
+		hGap="5"
+		constraints="gridbag(anchor=east;fill=both;gridHeight=-1;gridWidth=0;gridX=-1;gridY=-1;insetsBottom=30;insetsLeft=20;insetsRight=20;insetsTop=0;location=center;padX=0;padY=0;weightX=1.0;weightY=0.1)"
+		name="FIBPanel">
+		<Button id="14" buttonType="Trigger" action="data.newProject()"
+			label="new_project" localize="true"
+			constraints="flow(anchor=east;fill=vertical;gridHeight=1;gridWidth=1;gridX=-1;gridY=-1;insetsBottom=30;insetsLeft=20;insetsRight=20;insetsTop=0;location=center;padX=0;padY=0;weightX=1.0;weightY=0.1)"
+			height="50" width="150" name="Button" />
+		<Button id="15" buttonType="Trigger"
+			action="data.openProject()" label="open_project" localize="true"
+			constraints="flow()" height="50" width="150" name="Button2" />
+	</Panel>
+	<LocalizedDictionary id="16">
+		<Localized id="17" lang="English" value="New project"
+			key="new_project" />
+		<Localized id="18" lang="Dutch" value="new_project"
+			key="new_project" />
+		<Localized id="19" lang="French" value="Nouveau projet"
+			key="new_project" />
+		<Localized id="20" lang="English" value="Open project"
+			key="open_project" />
+		<Localized id="21" lang="Dutch" value="open_project"
+			key="open_project" />
+		<Localized id="22" lang="French" value="Ouvrir un projet"
+			key="open_project" />
+		<Localized id="23" lang="English"
+		    value="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;    &#xA;  &lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    Le projet OneWay a pour but la ma&amp;#238;trise des cycles de productions dans &#xA;    l&amp;#8217;a&amp;#233;ronautique fran&amp;#231;aise, notamment &amp;#224; travers l&amp;#8217;avionneur Airbus. &amp;#160; Pour &#xA;    cela, ce projet vise &amp;#224; proposer des d&amp;#233;marches, techniques et outils pour &#xA;    une meilleurs efficacit&amp;#233; des activit&amp;#233;s d&amp;#8217;ing&amp;#233;nierie dans cette fili&amp;#232;re et &#xA;    assurer une am&amp;#233;lioration continue de la performance de ses produits.&#xA;&#xA;    &lt;ul&gt;&#xA;      &lt;li&gt;&#xA;        La probl&amp;#233;matique investigu&amp;#233;e par OneWay est la construction du Plan de &#xA;        D&amp;#233;veloppement Produit (PDP) et son analyse de performance qui sont, &amp;#224; &#xA;        ce jour, r&amp;#233;alis&amp;#233;es manuellement par des architectes PDP &amp;#224; partir d&amp;#8217;un &#xA;        r&amp;#233;f&amp;#233;rentiel bas&amp;#233; sur l&amp;#8217;exp&amp;#233;rience de programmes pr&amp;#233;c&amp;#233;dents.&#xA;      &lt;/li&gt;&#xA;      &lt;li&gt;&#xA;        La solution ici envisag&amp;#233;e est d&amp;#8217;utiliser la mod&amp;#233;lisation et la &#xA;        simulation de l&amp;#8217;architecture d&amp;#8217;entreprise &amp;#224; des fins de d&amp;#233;termination &#xA;        du plan produit optimal et de pilotage de l&amp;#8217;ex&amp;#233;cution de celui-ci pour &#xA;        le rendre robuste et cr&amp;#233;dible et r&amp;#233;pondre toujours au plus proche aux &#xA;        objectifs programme.&#xA;      &lt;/li&gt;&#xA;      &lt;li&gt;&#xA;        L&amp;#8217;ENSTA Bretagne contribue au d&amp;#233;veloppement du Framework de &#xA;        mod&amp;#233;lisation, sp&amp;#233;cification et v&amp;#233;rification des exigences m&amp;#233;tiers &amp;#224; &#xA;        travers une mod&amp;#233;lisation outill&amp;#233;e en s&amp;#8217;appuyant sur le socle OpenFlexo &#xA;        et OBP.&#xA;      &lt;/li&gt;&#xA;    &lt;/ul&gt;&#xA;  &lt;/body&gt;&#xA;&lt;/html&gt;&#xA;" 
+			key="welcome_informations" />
+		<Localized id="24" lang="Dutch"
+		    value="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;    &#xA;  &lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    Le projet OneWay a pour but la ma&amp;#238;trise des cycles de productions dans &#xA;    l&amp;#8217;a&amp;#233;ronautique fran&amp;#231;aise, notamment &amp;#224; travers l&amp;#8217;avionneur Airbus. &amp;#160; Pour &#xA;    cela, ce projet vise &amp;#224; proposer des d&amp;#233;marches, techniques et outils pour &#xA;    une meilleurs efficacit&amp;#233; des activit&amp;#233;s d&amp;#8217;ing&amp;#233;nierie dans cette fili&amp;#232;re et &#xA;    assurer une am&amp;#233;lioration continue de la performance de ses produits.&#xA;&#xA;    &lt;ul&gt;&#xA;      &lt;li&gt;&#xA;        La probl&amp;#233;matique investigu&amp;#233;e par OneWay est la construction du Plan de &#xA;        D&amp;#233;veloppement Produit (PDP) et son analyse de performance qui sont, &amp;#224; &#xA;        ce jour, r&amp;#233;alis&amp;#233;es manuellement par des architectes PDP &amp;#224; partir d&amp;#8217;un &#xA;        r&amp;#233;f&amp;#233;rentiel bas&amp;#233; sur l&amp;#8217;exp&amp;#233;rience de programmes pr&amp;#233;c&amp;#233;dents.&#xA;      &lt;/li&gt;&#xA;      &lt;li&gt;&#xA;        La solution ici envisag&amp;#233;e est d&amp;#8217;utiliser la mod&amp;#233;lisation et la &#xA;        simulation de l&amp;#8217;architecture d&amp;#8217;entreprise &amp;#224; des fins de d&amp;#233;termination &#xA;        du plan produit optimal et de pilotage de l&amp;#8217;ex&amp;#233;cution de celui-ci pour &#xA;        le rendre robuste et cr&amp;#233;dible et r&amp;#233;pondre toujours au plus proche aux &#xA;        objectifs programme.&#xA;      &lt;/li&gt;&#xA;      &lt;li&gt;&#xA;        L&amp;#8217;ENSTA Bretagne contribue au d&amp;#233;veloppement du Framework de &#xA;        mod&amp;#233;lisation, sp&amp;#233;cification et v&amp;#233;rification des exigences m&amp;#233;tiers &amp;#224; &#xA;        travers une mod&amp;#233;lisation outill&amp;#233;e en s&amp;#8217;appuyant sur le socle OpenFlexo &#xA;        et OBP.&#xA;      &lt;/li&gt;&#xA;    &lt;/ul&gt;&#xA;  &lt;/body&gt;&#xA;&lt;/html&gt;&#xA;" 
+			key="welcome_informations" />
+		<Localized id="25" lang="French"
+		    value="&lt;html&gt;&#xA;  &lt;head&gt;&#xA;    &#xA;  &lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    Le projet OneWay a pour but la ma&amp;#238;trise des cycles de productions dans &#xA;    l&amp;#8217;a&amp;#233;ronautique fran&amp;#231;aise, notamment &amp;#224; travers l&amp;#8217;avionneur Airbus. &amp;#160; Pour &#xA;    cela, ce projet vise &amp;#224; proposer des d&amp;#233;marches, techniques et outils pour &#xA;    une meilleurs efficacit&amp;#233; des activit&amp;#233;s d&amp;#8217;ing&amp;#233;nierie dans cette fili&amp;#232;re et &#xA;    assurer une am&amp;#233;lioration continue de la performance de ses produits.&#xA;&#xA;    &lt;ul&gt;&#xA;      &lt;li&gt;&#xA;        La probl&amp;#233;matique investigu&amp;#233;e par OneWay est la construction du Plan de &#xA;        D&amp;#233;veloppement Produit (PDP) et son analyse de performance qui sont, &amp;#224; &#xA;        ce jour, r&amp;#233;alis&amp;#233;es manuellement par des architectes PDP &amp;#224; partir d&amp;#8217;un &#xA;        r&amp;#233;f&amp;#233;rentiel bas&amp;#233; sur l&amp;#8217;exp&amp;#233;rience de programmes pr&amp;#233;c&amp;#233;dents.&#xA;      &lt;/li&gt;&#xA;      &lt;li&gt;&#xA;        La solution ici envisag&amp;#233;e est d&amp;#8217;utiliser la mod&amp;#233;lisation et la &#xA;        simulation de l&amp;#8217;architecture d&amp;#8217;entreprise &amp;#224; des fins de d&amp;#233;termination &#xA;        du plan produit optimal et de pilotage de l&amp;#8217;ex&amp;#233;cution de celui-ci pour &#xA;        le rendre robuste et cr&amp;#233;dible et r&amp;#233;pondre toujours au plus proche aux &#xA;        objectifs programme.&#xA;      &lt;/li&gt;&#xA;      &lt;li&gt;&#xA;        L&amp;#8217;ENSTA Bretagne contribue au d&amp;#233;veloppement du Framework de &#xA;        mod&amp;#233;lisation, sp&amp;#233;cification et v&amp;#233;rification des exigences m&amp;#233;tiers &amp;#224; &#xA;        travers une mod&amp;#233;lisation outill&amp;#233;e en s&amp;#8217;appuyant sur le socle OpenFlexo &#xA;        et OBP.&#xA;      &lt;/li&gt;&#xA;    &lt;/ul&gt;&#xA;  &lt;/body&gt;&#xA;&lt;/html&gt;&#xA;" 
+			key="welcome_informations" />
+		<Localized id="26" lang="English" value="Welcome to  Formod"
+			key="welcome_to _formod" />
+		<Localized id="27" lang="Dutch" value="welcome_to _formod"
+			key="welcome_to _formod" />
+		<Localized id="28" lang="French"
+			value="Bienvenue dans Formod" key="welcome_to _formod" />
+	</LocalizedDictionary>
+	<FIBVariable id="29"
+		type="org.openflexo.module.FlexoModule$WelcomePanel" name="data" />
+</Panel>

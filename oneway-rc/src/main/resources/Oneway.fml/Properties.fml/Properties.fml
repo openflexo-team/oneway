@@ -1,0 +1,40 @@
+use org.openflexo.foundation.fml.ta.FMLModelSlot;
+
+/**
+ * 
+ * @author montheva
+ * @version 0.1
+ */
+@VirtualModel(uri="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml")
+public class Properties {
+
+  public VirtualModel propertiesVM;
+
+  @CreationScheme  
+  Properties:init() {  
+    propertiesVM = CreateTopLevelVirtualModel();  
+  }  
+
+
+  @FlexoConcept  
+  public class Property {  
+  
+    public String name;  
+    public String description;  
+    public DataBinding expression;  
+  
+    @CreationScheme    
+    Property:create(String aName, String aDescription) {    
+      name = parameters.aName;      
+      description = parameters.aDescription;    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      name = null;      
+      description = null;    
+    }    
+  
+  }  
+
+}

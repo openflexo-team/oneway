@@ -1,0 +1,52 @@
+use org.openflexo.technologyadapter.docx.DocXModelSlot;
+
+/**
+ * 
+ * @version 0.1
+ */
+@VirtualModel(uri="http://ensta-bretagne.fr/oneway/DocumentLibrary.fml/DocXDocument.fml")
+public class DocXDocument extends AbstractDocument  {
+
+  public DocXDocument docXDocument;
+
+  @CreationScheme  
+  DocXDocument:create(String documentName, DocXDocumentResource documentResource, String documentDescription) {  
+    docXDocument = parameters.documentResource.getResourceData();    
+    documentName = parameters.documentName;    
+    documentDescription = parameters.documentDescription;  
+  }  
+
+  @DeletionScheme  
+  Void delete() {  
+  
+  }  
+
+
+  @FlexoConcept  
+  public class DocXReference extends Reference  {  
+  
+      
+    public String rawText = textSelection.rawText;  
+    public TextSelection textSelection;  
+    @GetSetProperty(value="preview", access=get)    
+    public String getPreview {    
+      if (rawText.length < 30) {      
+        return rawText;      
+      } else {      
+        return (rawText.substring(0,30) + "...");      
+      }    
+    }  
+  
+    @CreationScheme    
+    DocXReference:create(TextSelection<FlexoDocument<?,?>,TechnologyAdapter> textSelection) {    
+      textSelection = parameters.textSelection;    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+}

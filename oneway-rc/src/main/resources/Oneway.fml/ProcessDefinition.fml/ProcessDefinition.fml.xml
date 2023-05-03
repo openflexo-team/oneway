@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VirtualModel id="MON-5" virtualModelClass="org.openflexo.foundation.fml.VirtualModel" modelVersion="2.0" uri="http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml" version="0.1" visibility="Public" name="ProcessDefinition" author="montheva" userID="MON" flexoID="5">
+  <FlexoConcept id="MON-21" visibility="Public" isAbstract="true" parentFlexoConceptsList="http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml#FlowElementDefinition" name="FlowNodeDefinition" author="montheva" userID="MON" flexoID="21">
+    <Inspector id="MON-22" inspectorTitle="FlowNodeDefinition" userID="MON" flexoID="22" />
+    <FlexoConceptInstanceRole id="MON-301" virtualModelInstance="container" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml#SequenceFlowDefinition" cloningStrategy="Reference" cardinality="ZeroMany" name="outGoing" userID="MON" flexoID="301" />
+    <FlexoConceptInstanceRole id="MON-302" virtualModelInstance="container" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml#FlowNodeDefinition" cloningStrategy="Reference" cardinality="ZeroMany" name="inComming" userID="MON" flexoID="302" />
+    <CreationScheme id="MON-26" label="create" name="create" width="800" height="600" userID="MON" flexoID="26">
+      <BehaviourControlGraph_EmptyControlGraph id="MON-35" userID="MON" flexoID="35" />
+    </CreationScheme>
+    <DeletionScheme id="MON-27" label="delete" name="delete" width="800" height="600" userID="MON" flexoID="27">
+      <BehaviourControlGraph_EmptyControlGraph id="MON-36" userID="MON" flexoID="36" />
+    </DeletionScheme>
+  </FlexoConcept>
+  <FlexoConcept id="MON-28" visibility="Public" isAbstract="true" name="FlowElementDefinition" author="montheva" userID="MON" flexoID="28">
+    <Inspector id="MON-29" inspectorTitle="FlowElementDefinition" userID="MON" flexoID="29" />
+    <PrimitiveRole id="MON-51" primitiveType="String" cloningStrategy="Clone" cardinality="One" name="name" userID="MON" flexoID="51" />
+    <CreationScheme id="MON-33" label="create" name="create" width="800" height="600" userID="MON" flexoID="33">
+      <BehaviourControlGraph_EmptyControlGraph id="MON-37" userID="MON" flexoID="37" />
+    </CreationScheme>
+    <DeletionScheme id="MON-34" label="delete" name="delete" width="800" height="600" userID="MON" flexoID="34">
+      <BehaviourControlGraph_EmptyControlGraph id="MON-38" userID="MON" flexoID="38" />
+    </DeletionScheme>
+    <ActionScheme id="MON-108" label="getName" name="getName" width="800" height="600" description="retourne le nom" userID="MON" flexoID="108">
+      <BehaviourControlGraph_EmptyControlGraph id="MON-109" userID="MON" flexoID="109" />
+    </ActionScheme>
+  </FlexoConcept>
+  <FlexoEnum id="MON-52" name="ElementType" author="" description="une énumération des type d'éléments manipulés" userID="MON" flexoID="52">
+    <Value_FlexoEnumValue id="MON-54" name="Event" userID="MON" flexoID="54">
+      <Inspector id="MON--1" inspectorTitle="Event" userID="MON" flexoID="-1" />
+    </Value_FlexoEnumValue>
+    <Value_FlexoEnumValue id="MON-65" name="GateWay" userID="MON" flexoID="65">
+      <Inspector id="SYL--1" inspectorTitle="GateWay" userID="SYL" flexoID="-1" />
+    </Value_FlexoEnumValue>
+    <Value_FlexoEnumValue id="MON-85" name="Task" description="un actinity simple" userID="MON" flexoID="85">
+      <Inspector id="MON--1" inspectorTitle="Task" userID="MON" flexoID="-1" />
+    </Value_FlexoEnumValue>
+    <Value_FlexoEnumValue id="MON-86" name="CallActivity" description="un activity avec sous processus" userID="MON" flexoID="86">
+      <Inspector id="MON--1" inspectorTitle="CallActivity" userID="MON" flexoID="-1" />
+    </Value_FlexoEnumValue>
+    <Value_FlexoEnumValue id="MON-87" name="SequenceFlow" userID="MON" flexoID="87">
+      <Inspector id="MON--1" inspectorTitle="SequenceFlow" userID="MON" flexoID="-1" />
+    </Value_FlexoEnumValue>
+    <Value_FlexoEnumValue id="MON-88" name="ItemAwareElement" description="les data object, data source, etc." userID="MON" flexoID="88">
+      <Inspector id="MON--1" inspectorTitle="ItemAwareElement" userID="MON" flexoID="-1" />
+    </Value_FlexoEnumValue>
+    <Inspector id="MON-53" inspectorTitle="ElementType" userID="MON" flexoID="53" />
+  </FlexoEnum>
+  <FlexoConcept id="MON-55" visibility="Public" parentFlexoConceptsList="http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml#FlowElementDefinition" name="SequenceFlowDefinition" author="montheva" userID="MON" flexoID="55">
+    <Inspector id="MON-56" inspectorTitle="SequenceFlowDefinition" userID="MON" flexoID="56" />
+    <FlexoConceptInstanceRole id="MON-62" virtualModelInstance="container" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml#FlowNodeDefinition" cloningStrategy="Reference" cardinality="One" name="sourceNode" userID="MON" flexoID="62" />
+    <FlexoConceptInstanceRole id="MON-300" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml#FlowNodeDefinition" cloningStrategy="Reference" cardinality="One" name="targetNode" userID="MON" flexoID="300" />
+    <CreationScheme id="MON-60" label="create" name="create" width="800" height="600" userID="MON" flexoID="60">
+      <BehaviourControlGraph_EmptyControlGraph id="MON-63" userID="MON" flexoID="63" />
+    </CreationScheme>
+    <DeletionScheme id="MON-61" label="delete" name="delete" width="800" height="600" userID="MON" flexoID="61">
+      <BehaviourControlGraph_EmptyControlGraph id="MON-66" userID="MON" flexoID="66" />
+    </DeletionScheme>
+  </FlexoConcept>
+  <FlexoEnum id="MON-90" name="ItemAwareType" author="" description="les objets et données produits : data object, data source, data input, etc" userID="MON" flexoID="90">
+    <Value_FlexoEnumValue id="MON-92" name="DataObject" userID="MON" flexoID="92">
+      <Inspector id="MON--1" inspectorTitle="DataObject" userID="MON" flexoID="-1" />
+    </Value_FlexoEnumValue>
+    <Value_FlexoEnumValue id="MON-93" name="DataSource" userID="MON" flexoID="93">
+      <Inspector id="MON--1" inspectorTitle="DataSource" userID="MON" flexoID="-1" />
+    </Value_FlexoEnumValue>
+    <Value_FlexoEnumValue id="MON-94" name="DataInput" userID="MON" flexoID="94">
+      <Inspector id="MON--1" inspectorTitle="DataInput" userID="MON" flexoID="-1" />
+    </Value_FlexoEnumValue>
+    <Value_FlexoEnumValue id="MON-96" name="DataOutput" userID="MON" flexoID="96">
+      <Inspector id="MON--1" inspectorTitle="DataOutput" userID="MON" flexoID="-1" />
+    </Value_FlexoEnumValue>
+    <Inspector id="MON-91" inspectorTitle="ItemAwareType" userID="MON" flexoID="91" />
+  </FlexoEnum>
+  <FlexoConcept id="MON-192" visibility="Public" parentFlexoConceptsList="http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml#ActivityDefinition" name="CallActivityDefinition" author="montheva" userID="MON" flexoID="192">
+    <Inspector id="MON-191" inspectorTitle="CallActivityDefinition" userID="MON" flexoID="191" />
+    <FlexoConceptInstanceRole id="MON-307" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml#FlowElementDefinition" cloningStrategy="Reference" cardinality="OneMany" name="flowElement" userID="MON" flexoID="307" />
+    <CreationScheme id="MON-196" label="create" name="create" width="800" height="600" userID="MON" flexoID="196">
+      <BehaviourControlGraph_EmptyControlGraph id="MON-198" userID="MON" flexoID="198" />
+    </CreationScheme>
+    <DeletionScheme id="MON-197" label="delete" name="delete" width="800" height="600" userID="MON" flexoID="197">
+      <BehaviourControlGraph_EmptyControlGraph id="MON-199" userID="MON" flexoID="199" />
+    </DeletionScheme>
+    <ActionScheme id="MON-242" label="getElements" name="getElements" width="800" height="600" description="renvoit la liste des élément du sous processus" userID="MON" flexoID="242">
+      <BehaviourControlGraph_EmptyControlGraph id="MON-245" userID="MON" flexoID="245" />
+    </ActionScheme>
+    <ActionScheme id="MON-243" label="getElement" name="getElement" width="800" height="600" description="renvoit l'élément de nom passé en paramètre" userID="MON" flexoID="243">
+      <BehaviourControlGraph_EmptyControlGraph id="MON-246" userID="MON" flexoID="246" />
+      <GenericBehaviourParameter id="MON-247" isRequired="true" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="MON" flexoID="247" />
+    </ActionScheme>
+    <ActionScheme id="MON-244" label="getElementByType" name="getElementByType" width="800" height="600" userID="MON" flexoID="244">
+      <BehaviourControlGraph_EmptyControlGraph id="MON-248" userID="MON" flexoID="248" />
+      <GenericBehaviourParameter id="MON-249" isRequired="true" widget="DROPDOWN" name="elementType" type="org.openflexo.foundation.fml.FlexoEnumType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml#ElementType&gt;" userID="MON" flexoID="249" />
+    </ActionScheme>
+  </FlexoConcept>
+  <FlexoConcept id="MON-201" visibility="Public" parentFlexoConceptsList="http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml#ActivityDefinition" name="TaskDefinition" author="montheva" userID="MON" flexoID="201">
+    <Inspector id="MON-200" inspectorTitle="TaskDefinition" userID="MON" flexoID="200" />
+    <CreationScheme id="MON-205" label="create" name="create" width="800" height="600" userID="MON" flexoID="205">
+      <BehaviourControlGraph_EmptyControlGraph id="MON-207" userID="MON" flexoID="207" />
+    </CreationScheme>
+    <DeletionScheme id="MON-206" label="delete" name="delete" width="800" height="600" userID="MON" flexoID="206">
+      <BehaviourControlGraph_EmptyControlGraph id="MON-208" userID="MON" flexoID="208" />
+    </DeletionScheme>
+  </FlexoConcept>
+  <FlexoConcept id="MON-284" visibility="Public" name="ItemAwareElementDefinition" author="montheva" description="pour gérer les DataObject, Data source et autre" userID="MON" flexoID="284">
+    <Inspector id="MON-283" inspectorTitle="ItemAwareElementDefinition" userID="MON" flexoID="283">
+      <InspectorEntry id="MON-295" widget="TEXT_FIELD" data="itemName" name="itemName" label="itemName" type="java.lang.String" userID="MON" flexoID="295" />
+    </Inspector>
+    <PrimitiveRole id="MON-292" primitiveType="String" cloningStrategy="Clone" cardinality="One" name="itemName" userID="MON" flexoID="292" />
+    <FlexoConceptInstanceRole id="MON-293" cloningStrategy="Reference" cardinality="One" name="type" description="" userID="MON" flexoID="293" />
+    <CreationScheme id="MON-288" label="create" name="create" width="800" height="600" userID="MON" flexoID="288">
+      <BehaviourControlGraph_AssignationAction id="MON-290" assign="itemName" userID="MON" flexoID="290">
+        <AssignableAction_ExpressionAction id="MON-296" expression="parameters.anItemName" userID="MON" flexoID="296" />
+      </BehaviourControlGraph_AssignationAction>
+      <GenericBehaviourParameter id="MON-297" isRequired="true" widget="TEXT_FIELD" name="anItemName" type="java.lang.String" userID="MON" flexoID="297" />
+    </CreationScheme>
+    <DeletionScheme id="MON-289" label="delete" name="delete" width="800" height="600" userID="MON" flexoID="289">
+      <BehaviourControlGraph_AssignationAction id="MON-291" assign="itemName" userID="MON" flexoID="291">
+        <AssignableAction_ExpressionAction id="MON-298" expression="null" userID="MON" flexoID="298" />
+      </BehaviourControlGraph_AssignationAction>
+    </DeletionScheme>
+    <ActionScheme id="MON-294" label="getName" name="getName" width="800" height="600" userID="MON" flexoID="294">
+      <BehaviourControlGraph_EmptyControlGraph id="MON-299" userID="MON" flexoID="299" />
+    </ActionScheme>
+  </FlexoConcept>
+  <FlexoEnum id="MON-341" name="ElementStatusType" userID="MON" flexoID="341">
+    <Value_FlexoEnumValue id="MON-349" name="Started" userID="MON" flexoID="349">
+      <Inspector id="MON--1" inspectorTitle="Started" userID="MON" flexoID="-1" />
+    </Value_FlexoEnumValue>
+    <Value_FlexoEnumValue id="MON-350" name="In_Progress" userID="MON" flexoID="350">
+      <Inspector id="MON--1" inspectorTitle="In_Progress" userID="MON" flexoID="-1" />
+    </Value_FlexoEnumValue>
+    <Value_FlexoEnumValue id="MON-351" name="Finished" userID="MON" flexoID="351">
+      <Inspector id="MON--1" inspectorTitle="Finished" userID="MON" flexoID="-1" />
+    </Value_FlexoEnumValue>
+    <Inspector id="MON-342" inspectorTitle="ElementStatusType" userID="MON" flexoID="342" />
+  </FlexoEnum>
+  <FlexoConcept idref="MON-144" />
+  <FlexoConcept idref="MON-10" />
+  <FlexoConcept idref="MON-156" />
+  <UseModelSlotDeclaration id="0" modelSlotClass="org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstanceModelSlot" userID="SYL" flexoID="-1" />
+  <Inspector id="MON-1" inspectorTitle="ProcessDefinition" userID="MON" flexoID="1" />
+  <EmbeddedFlexoConcept id="MON-144" visibility="Public" parentFlexoConceptsList="http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml#FlowNodeDefinition" name="GateWayDefinition" author="montheva" userID="MON" flexoID="144">
+    <Inspector id="MON-143" inspectorTitle="GateWayDefinition" userID="MON" flexoID="143" />
+    <CreationScheme id="MON-148" label="create" name="create" width="800" height="600" userID="MON" flexoID="148">
+      <BehaviourControlGraph_EmptyControlGraph id="MON-150" userID="MON" flexoID="150" />
+    </CreationScheme>
+    <DeletionScheme id="MON-149" label="delete" name="delete" width="800" height="600" userID="MON" flexoID="149">
+      <BehaviourControlGraph_EmptyControlGraph id="MON-151" userID="MON" flexoID="151" />
+    </DeletionScheme>
+  </EmbeddedFlexoConcept>
+  <EmbeddedFlexoConcept id="MON-10" visibility="Public" parentFlexoConceptsList="http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml#FlowNodeDefinition" name="ActivityDefinition" author="montheva" userID="MON" flexoID="10">
+    <Inspector id="MON-6" inspectorTitle="ActivityDefinition" userID="MON" flexoID="6" />
+    <FlexoConceptInstanceRole id="MON-303" virtualModelInstance="container" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml#EventDefinition" cloningStrategy="Reference" cardinality="ZeroMany" name="bondaryEvent" description="" userID="MON" flexoID="303" />
+    <FlexoConceptInstanceRole id="MON-304" virtualModelInstance="container" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml#ItemAwareElementDefinition" cloningStrategy="Reference" cardinality="ZeroMany" name="itemAwareElement" userID="MON" flexoID="304" />
+    <FlexoConceptInstanceRole id="MON-305" virtualModelInstance="container" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml#SequenceFlowDefinition" cloningStrategy="Reference" cardinality="ZeroOne" name="defaultSequenceFlow" userID="MON" flexoID="305" />
+    <CreationScheme id="MON-11" label="create" name="create" width="800" height="600" userID="MON" flexoID="11">
+      <BehaviourControlGraph_EmptyControlGraph id="MON-13" userID="MON" flexoID="13" />
+    </CreationScheme>
+    <DeletionScheme id="MON-12" label="delete" name="delete" width="800" height="600" userID="MON" flexoID="12">
+      <BehaviourControlGraph_EmptyControlGraph id="MON-14" userID="MON" flexoID="14" />
+    </DeletionScheme>
+  </EmbeddedFlexoConcept>
+  <EmbeddedFlexoConcept id="MON-156" visibility="Public" parentFlexoConceptsList="http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml#FlowNodeDefinition" name="EventDefinition" author="montheva" userID="MON" flexoID="156">
+    <Inspector id="MON-152" inspectorTitle="EventDefinition" userID="MON" flexoID="152" />
+    <CreationScheme id="MON-157" label="create" name="create" width="800" height="600" userID="MON" flexoID="157">
+      <BehaviourControlGraph_EmptyControlGraph id="MON-159" userID="MON" flexoID="159" />
+    </CreationScheme>
+    <DeletionScheme id="MON-158" label="delete" name="delete" width="800" height="600" userID="MON" flexoID="158">
+      <BehaviourControlGraph_EmptyControlGraph id="MON-160" userID="MON" flexoID="160" />
+    </DeletionScheme>
+    <ActionScheme id="MON-161" label="getInCommingEventByType" name="getInCommingEventByType" width="800" height="600" userID="MON" flexoID="161">
+      <BehaviourControlGraph_EmptyControlGraph id="MON-162" userID="MON" flexoID="162" />
+      <GenericBehaviourParameter id="MON-163" isRequired="true" widget="DROPDOWN" name="elementType" type="org.openflexo.foundation.fml.FlexoEnumType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml#ElementType&gt;" userID="MON" flexoID="163" />
+    </ActionScheme>
+  </EmbeddedFlexoConcept>
+  <PrimitiveRole id="MON-89" primitiveType="String" cloningStrategy="Clone" cardinality="One" name="processName" description="c'est le nom du processus défini" userID="MON" flexoID="89" />
+  <FMLRTVirtualModelInstanceModelSlot id="SYL-391" virtualModelURI="http://openflexo.org/modellers/resources/BPMN/FML/BPMNEditor.fml" isRequired="true" cloningStrategy="Reference" cardinality="ZeroOne" name="bpmnEditor" userID="SYL" flexoID="391" />
+  <FlexoConceptInstanceRole id="SYL-437" virtualModelInstance="requirements" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/Requirements.fml#Element" cloningStrategy="Reference" cardinality="ZeroOne" name="element" userID="SYL" flexoID="437" />
+  <PrimitiveRole id="SYL-484" primitiveType="String" cloningStrategy="Clone" cardinality="ZeroOne" name="description" userID="SYL" flexoID="484" />
+  <GetSetProperty id="SYL-530" name="diagrams" userID="SYL" flexoID="530">
+    <SetControlGraph_EmptyControlGraph id="SYL-534" ownerContext="setControlGraph" userID="SYL" flexoID="534" />
+    <GetControlGraph_ReturnStatement id="SYL-533" ownerContext="getControlGraph" userID="SYL" flexoID="533">
+      <AssignableAction_SelectVirtualModelInstance id="SYL-532" container="bpmnEditor" virtualModelTypeURI="http://openflexo.org/modellers/resources/BPMN/FML/BPMNEditor.fml/ProcessDiagram.fml" receiver="bpmnEditor" userID="SYL" flexoID="532" />
+    </GetControlGraph_ReturnStatement>
+  </GetSetProperty>
+  <ActionScheme id="MON-97" visibility="Public" label="getName" name="getName" width="800" height="600" description="retourne le nom du processus" userID="MON" flexoID="97">
+    <BehaviourControlGraph_EmptyControlGraph id="MON-98" userID="MON" flexoID="98" />
+  </ActionScheme>
+  <ActionScheme id="MON-100" label="getElements" name="getElements" width="800" height="600" description="retourne l'ensemble des élements du processus" userID="MON" flexoID="100">
+    <BehaviourControlGraph_EmptyControlGraph id="MON-101" userID="MON" flexoID="101" />
+  </ActionScheme>
+  <ActionScheme id="MON-102" label="getElement" name="getElement" width="800" height="600" author="" description="retourne l'élement dont le nom est passé en paramètre" userID="MON" flexoID="102">
+    <BehaviourControlGraph_EmptyControlGraph id="MON-103" userID="MON" flexoID="103" />
+    <GenericBehaviourParameter id="MON-104" isRequired="true" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="MON" flexoID="104" />
+  </ActionScheme>
+  <ActionScheme id="MON-105" label="getElementsByType" name="getElementsByType" width="800" height="600" description="liste des éléments d'un type donnée" userID="MON" flexoID="105">
+    <BehaviourControlGraph_EmptyControlGraph id="MON-106" userID="MON" flexoID="106" />
+    <GenericBehaviourParameter id="MON-107" isRequired="true" widget="DROPDOWN" defaultValue="this" name="elementType" type="org.openflexo.foundation.fml.FlexoEnumType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml#ElementType&gt;" userID="MON" flexoID="107" />
+  </ActionScheme>
+  <CreationScheme id="SYL-392" label="init" name="init" width="800" height="600" userID="SYL" flexoID="392">
+    <BehaviourControlGraph_Sequence id="SYL-440" userID="SYL" flexoID="440">
+      <ControlGraph2_Sequence id="SYL-487" ownerContext="controlGraph2" userID="SYL" flexoID="487">
+        <ControlGraph2_Sequence id="SYL-488" ownerContext="controlGraph2" userID="SYL" flexoID="488">
+          <ControlGraph2_AssignationAction id="SYL-486" assign="description" ownerContext="controlGraph2" userID="SYL" flexoID="486">
+            <AssignableAction_ExpressionAction id="SYL-485" expression="parameters.bpmnDescription" userID="SYL" flexoID="485" />
+          </ControlGraph2_AssignationAction>
+          <ControlGraph1_AssignationAction id="SYL-482" assign="processName" ownerContext="controlGraph1" userID="SYL" flexoID="482">
+            <AssignableAction_ExpressionAction id="SYL-481" expression="parameters.bpmnName" userID="SYL" flexoID="481" />
+          </ControlGraph1_AssignationAction>
+        </ControlGraph2_Sequence>
+        <ControlGraph1_AssignationAction id="SYL-439" assign="element" ownerContext="controlGraph1" userID="SYL" flexoID="439">
+          <AssignableAction_ExpressionAction id="SYL-438" expression="parameters.element" userID="SYL" flexoID="438" />
+        </ControlGraph1_AssignationAction>
+      </ControlGraph2_Sequence>
+      <ControlGraph1_AssignationAction id="SYL-396" assign="bpmnEditor" ownerContext="controlGraph1" userID="SYL" flexoID="396">
+        <AssignableAction_AddVirtualModelInstance id="SYL-394" virtualModelInstanceTitle="&quot;bpmn&quot;" virtualModelInstanceName="&quot;bpmn&quot;" creationSchemeURI="http://openflexo.org/modellers/resources/BPMN/FML/BPMNEditor.fml.create(bpmnResource)" flexoConceptTypeURI="http://openflexo.org/modellers/resources/BPMN/FML/BPMNEditor.fml" receiver="this" userID="SYL" flexoID="394">
+          <AddFlexoConceptInstanceParameter id="SYL-395" paramName="bpmnResource" value="parameters.bpmnResource" userID="SYL" flexoID="395" />
+        </AssignableAction_AddVirtualModelInstance>
+      </ControlGraph1_AssignationAction>
+    </BehaviourControlGraph_Sequence>
+    <GenericBehaviourParameter id="SYL-441" widget="CUSTOM_WIDGET" name="element" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/Requirements.fml#Element&gt;" userID="SYL" flexoID="441" />
+    <GenericBehaviourParameter id="SYL-397" widget="CUSTOM_WIDGET" name="bpmnResource" type="org.openflexo.foundation.resource.FlexoResourceType&lt;org.openflexo.technologyadapter.emf.model.EMFModel&gt;" userID="SYL" flexoID="397" />
+    <GenericBehaviourParameter id="SYL-489" widget="TEXT_FIELD" name="bpmnName" type="java.lang.String" userID="SYL" flexoID="489" />
+    <GenericBehaviourParameter id="SYL-490" widget="TEXT_FIELD" name="bpmnDescription" type="java.lang.String" userID="SYL" flexoID="490" />
+  </CreationScheme>
+  <DeletionScheme id="SYL-574" label="delete" name="delete" width="800" height="600" userID="SYL" flexoID="574">
+    <BehaviourControlGraph_Sequence id="SYL-575" userID="SYL" flexoID="575">
+      <ControlGraph2_AssignationAction id="SYL-576" assign="description" ownerContext="controlGraph2" userID="SYL" flexoID="576">
+        <AssignableAction_ExpressionAction id="SYL-577" expression="null" userID="SYL" flexoID="577" />
+      </ControlGraph2_AssignationAction>
+      <ControlGraph1_AssignationAction id="SYL-578" assign="processName" ownerContext="controlGraph1" userID="SYL" flexoID="578">
+        <AssignableAction_ExpressionAction id="SYL-579" expression="null" userID="SYL" flexoID="579" />
+      </ControlGraph1_AssignationAction>
+    </BehaviourControlGraph_Sequence>
+  </DeletionScheme>
+  <ActionScheme id="MON-619" label="getEvent" name="getEvent" width="800" height="600" userID="MON" flexoID="619">
+    <BehaviourControlGraph_ReturnStatement id="MON-625" userID="MON" flexoID="625">
+      <AssignableAction_SelectUniqueFlexoConceptInstance id="MON-623" container="this" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml#EventDefinition" receiver="this" userID="MON" flexoID="623">
+        <Condition id="MON-624" condition="(selected.name = parameters.name)" userID="MON" flexoID="624" />
+      </AssignableAction_SelectUniqueFlexoConceptInstance>
+    </BehaviourControlGraph_ReturnStatement>
+    <GenericBehaviourParameter id="MON-621" isRequired="true" widget="TEXT_FIELD" name="name" type="java.lang.String" userID="MON" flexoID="621" />
+  </ActionScheme>
+</VirtualModel>

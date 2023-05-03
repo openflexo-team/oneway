@@ -1,0 +1,32 @@
+dependencies {
+
+  compile project(':oneway-rc')
+  
+  // openflexo dep
+  compile flexoFoundation()
+  compile flexoUi()
+  compile flexoUtils()
+  compile flexoGraphicUtils()
+  compile diagramConnector()
+  compile diagramConnectorUi()
+  compile docxConnector()
+  compile docxConnectorUi()
+  compile ginaConnector()
+  compile ginaConnectorUi()
+  compile emfConnector()
+  compile emfConnectorUi()
+   
+  runtime flexoGraphicUtils()
+    
+  // external dep
+  
+  // testing dep
+  testCompile testUtils()
+  testCompile ginaTest()
+  testCompile ginaSwingEditorTest()
+  testCompile flexoFoundationTest()
+  testCompile flexoUiTest()
+  testRuntime flexoTestResources()
+ 
+  testCompile group: 'org.openflexo', name: 'modelers-rc', version: '2.0.1-SNAPSHOT'
+}

@@ -1,0 +1,35 @@
+use org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstanceModelSlot;
+
+/**
+ * 
+ * @version 0.1
+ */
+@VirtualModel(uri="http://ensta-bretagne.fr/oneway/DocumentLibrary.fml")
+public class DocumentLibrary {
+
+  @GetSetProperty(value="documents", access=get)  
+  public List<AbstractDocument> getDocuments {  
+    return this.FML@RT::SelectVirtualModelInstance();  
+  }
+
+  @CreationScheme  
+  DocumentLibrary:create() {  
+  
+  }  
+
+  @ActionScheme  
+  DocXDocument importDocXDocument(FlexoResource docXDocumentResource, String documentName, String documentDescription) {  
+    DocXDocument newDocumentVMI = DocXDocument.create(parameters.documentName,parameters.docXDocumentResource,parameters.documentDescription);    
+    this.firePropertyChange documents    
+    return newDocumentVMI;  
+  }  
+
+  @ActionScheme  
+  DocXDocument removeDocXDocument(DocXDocument documentVMI) {  
+    log ("Delete " + parameters.documentVMI)    
+    parameters.documentVMI.delete();    
+    this.firePropertyChange documents    
+    return parameters.documentVMI;  
+  }  
+
+}

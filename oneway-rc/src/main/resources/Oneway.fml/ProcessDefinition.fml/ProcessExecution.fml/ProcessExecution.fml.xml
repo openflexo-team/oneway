@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VirtualModel id="MON-5" virtualModelClass="org.openflexo.foundation.fml.VirtualModel" modelVersion="2.0" uri="http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml/ProcessExecution.fml" version="0.1" visibility="Public" name="ProcessExecution" author="montheva" userID="MON" flexoID="5">
+  <FlexoConcept id="MON-24" visibility="Public" name="Token" author="montheva" userID="MON" flexoID="24">
+    <Inspector id="MON-23" inspectorTitle="Tokens" userID="MON" flexoID="23" />
+    <FlexoConceptInstanceRole id="MON-31" virtualModelInstance="container" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml#FlowElementDefinition" cloningStrategy="Reference" cardinality="One" name="element" userID="MON" flexoID="31" />
+    <CreationScheme id="MON-28" label="create" name="create" width="800" height="600" userID="MON" flexoID="28">
+      <BehaviourControlGraph_EmptyControlGraph id="MON-32" userID="MON" flexoID="32" />
+    </CreationScheme>
+    <DeletionScheme id="MON-29" label="delete" name="delete" width="800" height="600" userID="MON" flexoID="29">
+      <BehaviourControlGraph_EmptyControlGraph id="MON-33" userID="MON" flexoID="33" />
+    </DeletionScheme>
+    <ActionScheme id="MON-30" label="getElement" name="getElement" width="800" height="600" userID="MON" flexoID="30">
+      <BehaviourControlGraph_EmptyControlGraph id="MON-34" userID="MON" flexoID="34" />
+    </ActionScheme>
+  </FlexoConcept>
+  <Inspector id="MON-1" inspectorTitle="ProcessExecution" userID="MON" flexoID="1" />
+  <PrimitiveRole id="MON-11" primitiveType="String" cloningStrategy="Clone" cardinality="One" name="processName" userID="MON" flexoID="11" />
+  <FlexoConceptInstanceRole id="MON-12" virtualModelInstance="container" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml#ElementStatusType" cloningStrategy="Reference" cardinality="ZeroOne" name="status" userID="MON" flexoID="12" />
+  <FlexoConceptInstanceRole id="MON-71" virtualModelInstance="this" flexoConceptTypeURI="http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml/ProcessExecution.fml#Token" cloningStrategy="Reference" cardinality="ZeroMany" name="tokens" userID="MON" flexoID="71" />
+  <ActionScheme id="MON-35" label="getTokens" name="getTokens" width="800" height="600" userID="MON" flexoID="35">
+    <BehaviourControlGraph_EmptyControlGraph id="MON-41" userID="MON" flexoID="41" />
+  </ActionScheme>
+  <ActionScheme id="MON-36" label="getStatus" name="getStatus" width="800" height="600" userID="MON" flexoID="36">
+    <BehaviourControlGraph_EmptyControlGraph id="MON-42" userID="MON" flexoID="42" />
+  </ActionScheme>
+  <ActionScheme id="MON-37" label="getTokensByType" name="getTokensByType" width="800" height="600" userID="MON" flexoID="37">
+    <BehaviourControlGraph_ReturnStatement id="MON-89" userID="MON" flexoID="89">
+      <AssignableAction_ExpressionAction id="MON-88" expression="this.tokens" userID="MON" flexoID="88" />
+    </BehaviourControlGraph_ReturnStatement>
+    <GenericBehaviourParameter id="MON-44" isRequired="true" widget="DROPDOWN" name="elementType" type="org.openflexo.foundation.fml.FlexoEnumType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml#ElementType&gt;" userID="MON" flexoID="44" />
+  </ActionScheme>
+  <ActionScheme id="MON-38" label="getActiveElements" name="getActiveElements" width="800" height="600" userID="MON" flexoID="38">
+    <BehaviourControlGraph_EmptyControlGraph id="MON-45" userID="MON" flexoID="45" />
+  </ActionScheme>
+  <ActionScheme id="MON-39" label="noTokenPresent" name="noTokenPresent" width="800" height="600" userID="MON" flexoID="39">
+    <BehaviourControlGraph_EmptyControlGraph id="MON-46" userID="MON" flexoID="46" />
+  </ActionScheme>
+  <ActionScheme id="MON-40" label="noTokenPresentBeforeEnd" name="noTokenPresentBeforeEnd" width="800" height="600" userID="MON" flexoID="40">
+    <BehaviourControlGraph_EmptyControlGraph id="MON-47" userID="MON" flexoID="47" />
+  </ActionScheme>
+  <ActionScheme id="MON-48" label="noMultiTokensElement" name="noMultiTokensElement" width="800" height="600" userID="MON" flexoID="48">
+    <BehaviourControlGraph_EmptyControlGraph id="MON-50" userID="MON" flexoID="50" />
+  </ActionScheme>
+  <ActionScheme id="MON-49" label="noMultiTokensElement" name="noMultiTokensElement" width="800" height="600" userID="MON" flexoID="49">
+    <BehaviourControlGraph_EmptyControlGraph id="MON-51" userID="MON" flexoID="51" />
+    <GenericBehaviourParameter id="MON-52" isRequired="true" widget="CUSTOM_WIDGET" name="elementType" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml#FlowElementDefinition&gt;" userID="MON" flexoID="52" />
+  </ActionScheme>
+  <ActionScheme id="MON-53" label="isActive" name="isActive" width="800" height="600" userID="MON" flexoID="53">
+    <BehaviourControlGraph_ReturnStatement id="MON-121" userID="MON" flexoID="121">
+      <AssignableAction_ExpressionAction id="MON-120" expression="this.aTokensExistOnElement(null)" userID="MON" flexoID="120" />
+    </BehaviourControlGraph_ReturnStatement>
+    <GenericBehaviourParameter id="MON-56" isRequired="true" widget="CUSTOM_WIDGET" name="element" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml#FlowElementDefinition&gt;" userID="MON" flexoID="56" />
+  </ActionScheme>
+  <ActionScheme id="MON-54" label="aTokensExistOnElement" name="aTokensExistOnElement" width="800" height="600" userID="MON" flexoID="54">
+    <BehaviourControlGraph_EmptyControlGraph id="MON-57" userID="MON" flexoID="57" />
+    <GenericBehaviourParameter id="MON-58" isRequired="true" widget="CUSTOM_WIDGET" name="element" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml#FlowElementDefinition&gt;" userID="MON" flexoID="58" />
+  </ActionScheme>
+  <ActionScheme id="MON-65" label="isEmitted" name="isEmitted" width="800" height="600" userID="MON" flexoID="65">
+    <BehaviourControlGraph_ReturnStatement id="MON-139" userID="MON" flexoID="139">
+      <AssignableAction_ExpressionAction id="MON-138" expression="this.aTokensExistOnElement(null)" userID="MON" flexoID="138" />
+    </BehaviourControlGraph_ReturnStatement>
+    <GenericBehaviourParameter id="MON-68" isRequired="true" widget="CUSTOM_WIDGET" name="event" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml#FlowNodeDefinition&gt;" userID="MON" flexoID="68" />
+  </ActionScheme>
+  <ActionScheme id="MON-66" label="hasBeenRunned" name="hasBeenRunned" width="800" height="600" userID="MON" flexoID="66">
+    <BehaviourControlGraph_EmptyControlGraph id="MON-69" userID="MON" flexoID="69" />
+    <GenericBehaviourParameter id="MON-70" isRequired="true" widget="CUSTOM_WIDGET" name="activity" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml#FlowNodeDefinition&gt;" userID="MON" flexoID="70" />
+  </ActionScheme>
+  <ActionScheme id="MON-78" label="isRunning" name="isRunning" width="800" height="600" description="retourne Vrai si le processus est en cours d'exécution" userID="MON" flexoID="78">
+    <BehaviourControlGraph_ReturnStatement id="MON-81" userID="MON" flexoID="81">
+      <AssignableAction_ExpressionAction id="MON-80" expression="(!(this.noTokenPresentBeforeEnd()))" userID="MON" flexoID="80" />
+    </BehaviourControlGraph_ReturnStatement>
+  </ActionScheme>
+  <ActionScheme id="MON-84" label="isRunning_2" name="isRunning_2" width="800" height="600" description="Version 2 de la méthode isRunning( ), écrite différemment" userID="MON" flexoID="84">
+    <BehaviourControlGraph_ReturnStatement id="MON-87" userID="MON" flexoID="87">
+      <AssignableAction_ExpressionAction id="MON-86" expression="((this.getTokensByType(null).size() = 0) &amp; (this.tokens.size &gt; 0))" userID="MON" flexoID="86" />
+    </BehaviourControlGraph_ReturnStatement>
+  </ActionScheme>
+  <ActionScheme id="MON-96" label="isEnded" name="isEnded" width="800" height="600" description="retourne vrai si aucun token avant un endEvent et si au moins 1 end est actif" userID="MON" flexoID="96">
+    <BehaviourControlGraph_ReturnStatement id="MON-100" userID="MON" flexoID="100">
+      <AssignableAction_ExpressionAction id="MON-99" expression="((this.getTokensByType(null).size() &gt; 0) &amp; this.noTokenPresentBeforeEnd())" userID="MON" flexoID="99" />
+    </BehaviourControlGraph_ReturnStatement>
+  </ActionScheme>
+  <ActionScheme id="MON-107" label="isProperCompleted" name="isProperCompleted" width="800" height="600" description="retourne vrai si le processus s'est terminé proprement" userID="MON" flexoID="107">
+    <BehaviourControlGraph_ReturnStatement id="MON-111" userID="MON" flexoID="111">
+      <AssignableAction_ExpressionAction id="MON-110" expression="(this.isEnded() &amp; this.noMultiTokensElement(null))" userID="MON" flexoID="110" />
+    </BehaviourControlGraph_ReturnStatement>
+  </ActionScheme>
+  <ActionScheme id="MON-112" label="isSafeState" name="isSafeState" width="800" height="600" description="vérifie si le processus est dans un état safe. Pour cela on vérifie qu'aucun sequence flow n'a plus d'un token" userID="MON" flexoID="112">
+    <BehaviourControlGraph_ReturnStatement id="MON-115" userID="MON" flexoID="115">
+      <AssignableAction_ExpressionAction id="MON-114" expression="this.noMultiTokensElement(null)" userID="MON" flexoID="114" />
+    </BehaviourControlGraph_ReturnStatement>
+  </ActionScheme>
+  <ActionScheme id="MON-116" label="isCleared" name="isCleared" width="800" height="600" description="Aucun présent dans le processus en dehors des end event. cela veut dire que le procesus est propre. tout est terminé" userID="MON" flexoID="116">
+    <BehaviourControlGraph_ReturnStatement id="MON-119" userID="MON" flexoID="119">
+      <AssignableAction_ExpressionAction id="MON-118" expression="(!(this.noTokenPresentBeforeEnd()))" userID="MON" flexoID="118" />
+    </BehaviourControlGraph_ReturnStatement>
+  </ActionScheme>
+  <ActionScheme id="MON-128" label="getEntriesTokens" name="getEntriesTokens" width="800" height="600" description="prends un element et retourne le nombre de tokens présents en entrée de cet élement" userID="MON" flexoID="128">
+    <BehaviourControlGraph_ReturnStatement id="MON-137" userID="MON" flexoID="137">
+      <AssignableAction_ExpressionAction id="MON-136" expression="this.tokens" userID="MON" flexoID="136" />
+    </BehaviourControlGraph_ReturnStatement>
+    <GenericBehaviourParameter id="MON-130" isRequired="true" widget="CUSTOM_WIDGET" name="element" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml#FlowElementDefinition&gt;" userID="MON" flexoID="130" />
+  </ActionScheme>
+  <ActionScheme id="MON-131" label="canRun" name="canRun" width="800" height="600" description="vérifie si une activité peut être exécutée" userID="MON" flexoID="131">
+    <BehaviourControlGraph_ReturnStatement id="MON-135" userID="MON" flexoID="135">
+      <AssignableAction_ExpressionAction id="MON-134" expression="(this.getEntriesTokens(null).size() &gt; 0)" userID="MON" flexoID="134" />
+    </BehaviourControlGraph_ReturnStatement>
+    <GenericBehaviourParameter id="MON-133" isRequired="true" widget="CUSTOM_WIDGET" name="activity" type="org.openflexo.foundation.fml.FlexoConceptInstanceType&lt;http://ensta-bretagne.fr/oneway/Oneway.fml/ProcessDefinition.fml#FlowNodeDefinition&gt;" userID="MON" flexoID="133" />
+  </ActionScheme>
+  <ActionScheme id="MON-146" label="isStarted" name="isStarted" width="800" height="600" description="vérifie si le processus est démarré" userID="MON" flexoID="146">
+    <BehaviourControlGraph_ReturnStatement id="MON-149" userID="MON" flexoID="149">
+      <AssignableAction_ExpressionAction id="MON-148" expression="this.isRunning()" userID="MON" flexoID="148" />
+    </BehaviourControlGraph_ReturnStatement>
+  </ActionScheme>
+</VirtualModel>

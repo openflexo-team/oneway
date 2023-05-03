@@ -1,0 +1,573 @@
+use org.openflexo.foundation.fml.ta.FMLModelSlot;
+use org.openflexo.foundation.fml.rt.FMLRTVirtualModelInstanceModelSlot;
+
+/**
+ * 
+ * @author sylvainguerin
+ * @version 0.1
+ */
+@VirtualModel(uri="http://ensta-bretagne.fr/oneway/Oneway.fml/Properties.fml/ProcessProperties.fml")
+public class ProcessProperties {
+
+  public VirtualModel processVM;
+  public ProcessDefinition processDefinition;
+  @GetSetProperty(value="atomicPropositions", access=get)  
+  public List<AtomicProposition> getAtomicPropositions {  
+    return this.SelectFlexoConceptInstance(type=AtomicProposition);  
+  }
+  @GetSetProperty(value="properties", access=get)  
+  public List<Property> getProperties {  
+    return this.SelectFlexoConceptInstance(type=Property);  
+  }
+
+  @CreationScheme  
+  ProcessProperties:init(ProcessDefinition processDefinition) {  
+    String vmName = parameters.processDefinition.processName;    
+    if vmName.endsWith(".bpmn") {    
+      vmName = vmName.substring(0,(vmName.length - 5));    
+    }    
+    processVM = propertiesVM.CreateContainedVirtualModel();    
+    processDefinition = parameters.processDefinition;    
+    processVM.CreateFlexoConceptInstanceRole()    
+    processVM.CreateFlexoConceptInstanceRole()    
+    processVM.CreatePrimitiveRole()  
+  }  
+
+  @ActionScheme  
+  AtomicProposition createNewAtomicProposition(String name, String identifier, String description, DataBinding<Object> expression) {  
+    return AtomicProposition.create(parameters.name,parameters.description,parameters.expression,parameters.identifier);  
+  }  
+
+  @ActionScheme  
+  Property createProperty(String name, String description, Requirement requirement, Scope scope, Pattern pattern) {  
+    return Property.create(parameters.name,parameters.description,parameters.scope,parameters.pattern,parameters.requirement);  
+  }  
+
+  @ActionScheme  
+  BooleanExpression createBooleanExpression(DataBinding<Boolean> expression) {  
+    return BooleanExpression.create(parameters.expression);  
+  }  
+
+  @ActionScheme  
+  Globally createGloballyScope() {  
+    return Globally.create();  
+  }  
+
+  @ActionScheme  
+  Before createBeforeScope(BooleanExpression expression) {  
+    return Before.create(parameters.expression);  
+  }  
+
+  @ActionScheme  
+  Before createAfterScope(BooleanExpression expression) {  
+    return Before.create(parameters.expression);  
+  }  
+
+  @ActionScheme  
+  Between createBetweenScope(BooleanExpression expression1, BooleanExpression expression2) {  
+    return Between.create(parameters.expression1,parameters.expression2);  
+  }  
+
+  @ActionScheme  
+  AfterUntil createAfterUntilScope(BooleanExpression expression1, BooleanExpression expression2) {  
+    return AfterUntil.create(parameters.expression1,parameters.expression2);  
+  }  
+
+  @ActionScheme  
+  Absence createAbsencePattern(BooleanExpression expression) {  
+    return Absence.create(parameters.expression);  
+  }  
+
+  @ActionScheme  
+  Universality createUniversalityPattern(BooleanExpression expression) {  
+    return Universality.create(parameters.expression);  
+  }  
+
+  @ActionScheme  
+  Existence createExistencePattern(BooleanExpression expression) {  
+    return Existence.create(parameters.expression);  
+  }  
+
+  @ActionScheme  
+  BoundedExistence createBoundedExistencePattern(String bounderType, int counter, BooleanExpression expression) {  
+    return BoundedExistence.create(parameters.bounderType,parameters.counter,parameters.expression);  
+  }  
+
+  @ActionScheme  
+  Precedence createPrecedencePattern(BooleanExpression expression1, BooleanExpression expression2) {  
+    return Precedence.create(parameters.expression1,parameters.expression2);  
+  }  
+
+  @ActionScheme  
+  Response createResponsePattern(BooleanExpression expression1, BooleanExpression expression2) {  
+    return Response.create(parameters.expression1,parameters.expression2);  
+  }  
+
+
+  @FlexoConcept  
+  public class AtomicProposition {  
+  
+    public String name;  
+    public String description;  
+    public FlexoProperty expressionProperty;  
+    public String identifier;  
+  
+    @CreationScheme    
+    AtomicProposition:create(String name, String identifier, String description, DataBinding<Object> expression) {    
+      name = parameters.name;      
+      identifier = parameters.identifier;      
+      description = parameters.description;      
+      expressionProperty = processVM.CreateExpressionProperty();    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class Property {  
+  
+    public Scope scope;  
+    public Pattern pattern;  
+    public String name;  
+    public String description;  
+    public Requirement requirement;  
+      
+    public String gpslRepresentation = ((((scope.gpslRepresentation + " ") + "(") + pattern.gpslRepresentation) + ")");  
+  
+    @CreationScheme    
+    Property:create(String name, String description, Requirement requirement, Scope scope, Pattern pattern) {    
+      name = parameters.name;      
+      description = parameters.description;      
+      requirement = parameters.requirement;      
+      scope = parameters.scope;      
+      pattern = parameters.pattern;    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class Scope {  
+  
+      
+    abstract String gpslRepresentation;  
+  
+    @CreationScheme    
+    Scope:create() {    
+      
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class Globally extends Scope  {  
+  
+      
+    public String gpslRepresentation = "[]";  
+  
+    @CreationScheme    
+    Globally:create() {    
+      
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class UnaryScope extends Scope  {  
+  
+    public BooleanExpression expression;  
+  
+    @CreationScheme    
+    UnaryScope:create() {    
+      
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class Before extends UnaryScope  {  
+  
+      
+    public String gpslRepresentation = ("before " + expression.gpslRepresentation);  
+  
+    @CreationScheme    
+    Before:create(BooleanExpression expression) {    
+      expression = parameters.expression;    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class After extends UnaryScope  {  
+  
+      
+    public String gpslRepresentation = ("after " + expression.gpslRepresentation);  
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+    @CreationScheme    
+    After:create(BooleanExpression expression) {    
+      expression = parameters.expression;    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class BinaryScope extends Scope  {  
+  
+    public BooleanExpression expression1;  
+    public BooleanExpression expression2;  
+  
+    @CreationScheme    
+    BinaryScope:create() {    
+      
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class Between extends BinaryScope  {  
+  
+      
+    public String gpslRepresentation = ((("between " + expression1.gpslRepresentation) + " and ") + expression2.gpslRepresentation);  
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+    @CreationScheme    
+    Between:create(BooleanExpression expression1, BooleanExpression expression2) {    
+      expression1 = parameters.expression1;      
+      expression2 = parameters.expression2;    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class AfterUntil extends BinaryScope  {  
+  
+      
+    public String gpslRepresentation = ((("after " + expression1.gpslRepresentation) + " until ") + expression2.gpslRepresentation);  
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+    @CreationScheme    
+    AfterUntil:create(BooleanExpression expression1, BooleanExpression expression2) {    
+      expression1 = parameters.expression1;      
+      expression2 = parameters.expression2;    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class Pattern {  
+  
+      
+    abstract String gpslRepresentation;  
+  
+    @CreationScheme    
+    Pattern:create() {    
+      
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class OccurencePattern extends Pattern  {  
+  
+    public BooleanExpression expression;  
+  
+    @CreationScheme    
+    OccurencePattern:create() {    
+      
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class UnboundedOccurencePattern extends OccurencePattern  {  
+  
+    @CreationScheme    
+    UnboundedOccurencePattern:create() {    
+      
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class Absence extends UnboundedOccurencePattern  {  
+  
+      
+    public String gpslRepresentation = ("not " + expression.gpslRepresentation);  
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+    @CreationScheme    
+    Absence:create(BooleanExpression expression) {    
+      expression = parameters.expression;    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class Universality extends UnboundedOccurencePattern  {  
+  
+      
+    public String gpslRepresentation = expression.gpslRepresentation;  
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+    @CreationScheme    
+    Universality:create(BooleanExpression expression) {    
+      expression = parameters.expression;    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class Existence extends UnboundedOccurencePattern  {  
+  
+      
+    public String gpslRepresentation = expression.gpslRepresentation;  
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+    @CreationScheme    
+    Existence:create(BooleanExpression expression) {    
+      expression = parameters.expression;    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class OrderPattern extends Pattern  {  
+  
+    @CreationScheme    
+    OrderPattern:create() {    
+      
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class SingleOrderPattern extends OrderPattern  {  
+  
+    public BooleanExpression expression1;  
+    public BooleanExpression expression2;  
+  
+    @CreationScheme    
+    SingleOrderPattern:create() {    
+      
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class Precedence extends SingleOrderPattern  {  
+  
+      
+    public String gpslRepresentation = ((expression1.gpslRepresentation + " <- ") + expression2.gpslRepresentation);  
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+    @CreationScheme    
+    Precedence:create(BooleanExpression expression1, BooleanExpression expression2) {    
+      expression1 = parameters.expression1;      
+      expression2 = parameters.expression2;    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class Response extends SingleOrderPattern  {  
+  
+      
+    public String gpslRepresentation = ((expression2.gpslRepresentation + " -> <>") + expression1.gpslRepresentation);  
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+    @CreationScheme    
+    Response:create(BooleanExpression expression1, BooleanExpression expression2) {    
+      expression1 = parameters.expression1;      
+      expression2 = parameters.expression2;    
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class ChainOrderPattern extends OrderPattern  {  
+  
+    @CreationScheme    
+    ChainOrderPattern:create() {    
+      
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class ChainPrecedence extends ChainOrderPattern  {  
+  
+      
+    public String gpslRepresentation = "not implemented";  
+  
+    @CreationScheme    
+    ChainPrecedence:create() {    
+      
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class ChainResponse extends ChainOrderPattern  {  
+  
+      
+    public String gpslRepresentation = "not implemented";  
+  
+    @CreationScheme    
+    ChainResponse:create() {    
+      
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class BooleanExpression {  
+  
+    public DataBinding expression;  
+      
+    public String gpslRepresentation = (("|" + expression) + "|");  
+  
+    @CreationScheme    
+    BooleanExpression:create(DataBinding<Boolean> expression) {    
+      expression = parameters.expression;    
+    }    
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+  }  
+
+  @FlexoConcept  
+  public class BounderType {  
+  }  
+
+  @FlexoConcept  
+  public class BoundedExistence extends OccurencePattern  {  
+  
+    public String bounderType;  
+    public int counter;  
+      
+    public String gpslRepresentation = ((((bounderType + " ") + counter) + " ") + expression.gpslRepresentation);  
+  
+    @DeletionScheme    
+    Void delete() {    
+      
+    }    
+  
+    @CreationScheme    
+    BoundedExistence:create(String bounderType, int counter, BooleanExpression expression) {    
+      expression = parameters.expression;      
+      bounderType = parameters.bounderType;      
+      counter = parameters.counter;    
+    }    
+  
+  }  
+
+}
