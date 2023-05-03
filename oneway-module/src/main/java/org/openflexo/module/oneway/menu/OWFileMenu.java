@@ -40,12 +40,9 @@ package org.openflexo.module.oneway.menu;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
-
-import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
@@ -118,10 +115,9 @@ public class OWFileMenu extends FileMenu {
 		}
 	}
 
-
 	public class GenerateGPSLItem extends FlexoMenuItem {
 		public GenerateGPSLItem() {
-			super(new GenerateGPSLAction(), "Générer le GPSL", null, getController(), true);
+			super(new GenerateGPSLAction(), "GÃ©nÃ©rer le GPSL", null, getController(), true);
 		}
 	}
 
@@ -133,175 +129,256 @@ public class OWFileMenu extends FileMenu {
 		@Override
 		public void actionPerformed(ActionEvent event) {
 			OnewayProjectNature onewayNature = getOWController().getOnewayNature();
-			System.out.println("onewayNature="+onewayNature);
+			System.out.println("onewayNature=" + onewayNature);
 			FMLRTVirtualModelInstance onewayView = onewayNature.getOnewayView(); // correspond a OnewayVMI.fml.rt
-			System.out.println("onewayView="+onewayView);
-						
-			//------------------@Valery-----------------------------
-			System.out.println("Name VirtualModel="+onewayNature.getRequirementsVirtualModel().getName());
-			System.out.println("Description VirtualModel="+onewayNature.getRequirementsVirtualModel().getDescription());
-			System.out.println("RequirementReferenceConcept="+onewayNature.getRequirementReferenceConcept().toString());
-			System.out.println("RequirementConcept="+onewayNature.getRequirementConcept().toString());
-			//System.out.println("onewayNature="+onewayNature.getRequirementsVirtualModel().toString());
-			
-			//-----------------------------------------------------------------------------
-			
-			
-			FMLRTVirtualModelInstance requirementsVirtualModelInstance = onewayNature.getRequirementsVirtualModelInstance();
-			System.out.println("requirementsVirtualModelInstance="+requirementsVirtualModelInstance);
-			
-			FMLRTVirtualModelInstance propertiesVirtualModelInstance = onewayNature.getPropertiesVirtualModelInstance();
-			System.out.println("propertiesVirtualModelInstance="+propertiesVirtualModelInstance);
+			System.out.println("onewayView=" + onewayView);
 
-			
-			
+			// ------------------@Valery-----------------------------
+			System.out.println("Name VirtualModel=" + onewayNature.getRequirementsVirtualModel().getName());
+			System.out.println("Description VirtualModel=" + onewayNature.getRequirementsVirtualModel().getDescription());
+			System.out.println("RequirementReferenceConcept=" + onewayNature.getRequirementReferenceConcept().toString());
+			System.out.println("RequirementConcept=" + onewayNature.getRequirementConcept().toString());
+			// System.out.println("onewayNature="+onewayNature.getRequirementsVirtualModel().toString());
+
+			// -----------------------------------------------------------------------------
+
+			FMLRTVirtualModelInstance requirementsVirtualModelInstance = onewayNature.getRequirementsVirtualModelInstance();
+			System.out.println("requirementsVirtualModelInstance=" + requirementsVirtualModelInstance);
+
+			FMLRTVirtualModelInstance propertiesVirtualModelInstance = onewayNature.getPropertiesVirtualModelInstance();
+			System.out.println("propertiesVirtualModelInstance=" + propertiesVirtualModelInstance);
+
 			// A partir de la, 2 solutions
 			// - Premiere solution : API java
 			// - Deuxieme solution : API FML
 
 			List<FlexoConceptInstance> elements;
 			List<FlexoConceptInstance> requirements;
-			
+
 			List<FlexoConceptInstance> properties = new ArrayList<>();
 			FlexoConceptInstance property;
 			FlexoConceptInstance requirementOfProperty;
 			List<FlexoConceptInstance> atomicPropositions;
-			
+
 			String fileName, directory;
-			
-			//FMLRTVirtualModelInstance processPropertiesVirtualModelInstance;
-			
-			
+
+			// FMLRTVirtualModelInstance processPropertiesVirtualModelInstance;
+
 			try {
-				
-					
-				directory="C:\\Users\\montheva\\Documents\\ONEWAY\\Implementation\\GpslFiles";
-				
-				fileName=directory+"/"+onewayView.execute("this.projectName")+".gpsl";
-				
-				
-				
-                //change the directory------------
+
+				directory = "C:\\Users\\montheva\\Documents\\ONEWAY\\Implementation\\GpslFiles";
+
+				fileName = directory + "/" + onewayView.execute("this.projectName") + ".gpsl";
+
+				// change the directory------------
 				System.setProperty("user.dir", directory);
-				
+
 				System.out.println("\n========================");
-				System.out.println("Chemin User = "+System.getProperty("user.dir"));
+				System.out.println("Chemin User = " + System.getProperty("user.dir"));
 				System.out.println("========================\n");
-				
-				
+
 				elements = requirementsVirtualModelInstance.execute("this.allElements");
-				
+
 				FlexoConceptInstance monElementASupprimer = null;
-				
-				//requirementsVirtualModelInstance.execute("this.removeElement({$element})",monElementASupprimer);
-				
+
+				// requirementsVirtualModelInstance.execute("this.removeElement({$element})",monElementASupprimer);
+
 				// Elements and Requirement-------------------------------
 				System.out.println("========================");
 				System.out.println("=======Les Elements=====");
-				System.out.println("elements="+elements);
-				
+				System.out.println("elements=" + elements);
+
 				System.out.println("=======Les Exigences de chaque Element=====");
-								
-				for(FlexoConceptInstance e : elements)
-				{
+
+				for (FlexoConceptInstance e : elements) {
 					System.out.println("-------------------------");
 					requirements = e.execute("this.requirements");
-					System.out.println("Element = "+e.getStringRepresentation());
-					System.out.println("Requirements = "+requirements);
-					//System.out.println("-------------------------");
-					for(FlexoConceptInstance r : requirements)
-					{
-								
-					  System.out.println("Nom = "+r.execute("this.name"));
-					  System.out.println("Description = "+r.execute("this.description"));
-					}  
+					System.out.println("Element = " + e.getStringRepresentation());
+					System.out.println("Requirements = " + requirements);
+					// System.out.println("-------------------------");
+					for (FlexoConceptInstance r : requirements) {
+
+						System.out.println("Nom = " + r.execute("this.name"));
+						System.out.println("Description = " + r.execute("this.description"));
+					}
 				}
-				
-				
+
 				System.out.println("==============================");
-								
-				System.out.println("========Les Propriétés========");
-				propertiesVirtualModelInstance.getVirtualModelInstances(); 
-				System.out.println("properties="+propertiesVirtualModelInstance.getVirtualModelInstances());
-				
-				for(FlexoConceptInstance pp : propertiesVirtualModelInstance.getVirtualModelInstances())
-				{
+
+				System.out.println("========Les Proprietes========");
+				propertiesVirtualModelInstance.getVirtualModelInstances();
+				System.out.println("properties=" + propertiesVirtualModelInstance.getVirtualModelInstances());
+
+				for (FlexoConceptInstance pp : propertiesVirtualModelInstance.getVirtualModelInstances()) {
 					System.out.println("-------------------------");
 					atomicPropositions = pp.execute("this.atomicPropositions");
 					properties = pp.execute("this.properties");
-					
-					System.out.println("Atomic Propositions = "+atomicPropositions);
-					System.out.println("Properties = "+properties);
+
+					System.out.println("Atomic Propositions = " + atomicPropositions);
+					System.out.println("Properties = " + properties);
 					System.out.println("-------------------------");
-					//for(FlexoConceptInstance p : properties)
-					
-					
+					// for(FlexoConceptInstance p : properties)
+
 					System.out.println("//----------------------------------------------------------");
 					System.out.println("//-----------------project GPSL file------------------------");
 					System.out.println("//----------------------------------------------------------");
 					System.out.println("// this file contains all the properties defined for your projets \n\n");
-					System.out.println("// the file structure is as follows :\n"+
-					                   "// fror each property defined on the process execution, you have : \n"+
-									   "// name : property name \n"+
-					                   "// requirement : \n"+
-									   "//   name : requirement description");
+					System.out.println("// the file structure is as follows :\n"
+							+ "// fror each property defined on the process execution, you have : \n" + "// name : property name \n"
+							+ "// requirement : \n" + "//   name : requirement description");
 					System.out.println("//----------------------------------------------------------");
-						
-				    // List of atomic propositions--------------------------	
+
+					// List of atomic propositions--------------------------
 					FlexoConceptInstance ap;
-					
+
 					System.out.println("\n//--------List of Atomic propositions-----------------------");
-					System.out.println("//---Number of Atomic propositions : "+ atomicPropositions.size());
+					System.out.println("//---Number of Atomic propositions : " + atomicPropositions.size());
 					System.out.println("//----------------------------------------------------------");
-					
-					for(int i=0;i<atomicPropositions.size();i++)
-					{
-						ap=atomicPropositions.get(i);		
-						System.out.println("\n//----------Atomic proposition N°:"+(i+1)+"-------------------");
-						System.out.println("// Name : "+ap.execute("this.name"));
-						System.out.println("// Description : "+ap.execute("this.description"));
-						System.out.println("let "+ap.execute("this.name")+"="+ap.execute("this.expressionProperty"));
-							
-					} 
-					
-					// List of properties--------------------------	
-					
+
+					for (int i = 0; i < atomicPropositions.size(); i++) {
+						ap = atomicPropositions.get(i);
+						System.out.println("\n//----------Atomic proposition NÂ°:" + (i + 1) + "-------------------");
+						System.out.println("// Name : " + ap.execute("this.name"));
+						System.out.println("// Description : " + ap.execute("this.description"));
+						System.out.println("let " + ap.execute("this.name") + "=" + ap.execute("this.expressionProperty"));
+
+					}
+
+					// List of properties--------------------------
+
 					FlexoConceptInstance p;
-					
+
 					System.out.println("\n//-------------List of properties------------------------");
-					System.out.println("//---Number of properties : "+ properties.size());
+					System.out.println("//---Number of properties : " + properties.size());
 					System.out.println("//----------------------------------------------------------");
-					
-					for(int i=0;i<properties.size();i++)
-					{
-						p=properties.get(i);		
-						System.out.println("\n//----------Property N°:"+(i+1)+"-------------------");
-						System.out.println("// Name : "+p.execute("this.name"));
-						System.out.println("// Requirement : \n"+
-										   "//   "+p.execute("this.requirement.name")+
-										   " : "+p.execute("this.requirement.description"));
-						//System.out.println("Description = "+p.execute("this.description"));
+
+					for (int i = 0; i < properties.size(); i++) {
+						p = properties.get(i);
+						System.out.println("\n//----------Property NÂ°:" + (i + 1) + "-------------------");
+						System.out.println("// Name : " + p.execute("this.name"));
+						System.out.println("// Requirement : \n" + "//   " + p.execute("this.requirement.name") + " : "
+								+ p.execute("this.requirement.description"));
+						// System.out.println("Description = "+p.execute("this.description"));
 						System.out.println("// GPSL : \n");
-						System.out.println(p.execute("this.name")+" = "+p.execute("this.gpslRepresentation"));
-						
+						System.out.println(p.execute("this.name") + " = " + p.execute("this.gpslRepresentation"));
+
 						System.out.println("\n//------its atomic propositions -----------------");
-						System.out.println("// AP : "+p.execute("this.scope"));
-						System.out.println("// AP : "+p.execute("this.pattern"));
-						
-						
-					}  
+						System.out.println("// AP : " + p.execute("this.scope"));
+						System.out.println("// AP : " + p.execute("this.pattern"));
+
+					}
 				}
-				
+
 				System.out.println("//-------------------------------------");
 				System.out.println("//-End of file ");
 				System.out.println("//-All porperties have been generated");
-				System.out.println("//-Total : "+properties.size());
+				System.out.println("//-Total : " + properties.size());
 				System.out.println("//-------------------------------------");
-				
-				
-				//------write to file-------------------------
-				writeToFile(fileName,propertiesVirtualModelInstance);		
-				
+
+				// ------write to file-------------------------
+				writeToFile(fileName, propertiesVirtualModelInstance);
+
+			} catch (TypeMismatchException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NullReferenceException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvalidBindingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		// -----write to file------------------
+		public void writeToFile(String fileName, FMLRTVirtualModelInstance propertiesVMI) throws IOException {
+			List<FlexoConceptInstance> properties = new ArrayList<>();
+			FlexoConceptInstance property;
+			// FlexoConceptInstance requirementOfProperty;
+			List<FlexoConceptInstance> atomicPropositions;
+
+			PrintWriter writer;
+			writer = new PrintWriter(new FileWriter(fileName));
+
+			// ---------------------------------------------------------
+			try {
+
+				for (FlexoConceptInstance pp : propertiesVMI.getVirtualModelInstances()) {
+					// writer.println("-------------------------");
+					atomicPropositions = pp.execute("this.atomicPropositions");
+					properties = pp.execute("this.properties");
+
+					// writer.println("Atomic Propositions = "+atomicPropositions);
+					/// writer.println("Properties = "+properties);
+					// writer.println("-------------------------");
+					// for(FlexoConceptInstance p : properties)
+
+					writer.println("//----------------------------------------------------------");
+					writer.println("//-----------------project GPSL file------------------------");
+					writer.println("//----------------------------------------------------------");
+					writer.println("// this file contains all the properties defined for your projcet \n\n");
+					writer.println("// the file structure is as follows :\n"
+							+ "// fror each property defined on the process execution, you have : \n" + "// name : property name \n"
+							+ "// requirement : \n" + "//   name : requirement description");
+					writer.println("//----------------------------------------------------------");
+
+					// List of atomic propositions--------------------------
+					FlexoConceptInstance ap;
+
+					writer.println("\n//--------List of Atomic propositions-----------------------");
+					writer.println("//---Number of Atomic propositions : " + atomicPropositions.size());
+					writer.println("//----------------------------------------------------------");
+
+					for (int i = 0; i < atomicPropositions.size(); i++) {
+						ap = atomicPropositions.get(i);
+						writer.println("\n//----------Atomic proposition NÂ°:" + (i + 1) + "-------------------");
+						writer.println("// Name : " + ap.execute("this.name"));
+						writer.println("// Description : " + ap.execute("this.description"));
+						writer.println("\nlet " + ap.execute("this.name") + "=" + ap.execute("this.expressionProperty"));
+
+					}
+
+					// List of properties--------------------------
+
+					FlexoConceptInstance p;
+
+					writer.println("\n//-------------List of properties------------------------");
+					writer.println("//---Number of properties : " + properties.size());
+					writer.println("//----------------------------------------------------------");
+
+					for (int i = 0; i < properties.size(); i++) {
+						p = properties.get(i);
+						writer.println("\n//----------Property NÂ°:" + (i + 1) + "-------------------");
+						writer.println("// Name : " + p.execute("this.name"));
+						writer.println("// Requirement : \n" + "//   " + p.execute("this.requirement.name") + " : "
+								+ p.execute("this.requirement.description"));
+						// writer.println("Description = "+p.execute("this.description"));
+						writer.println("// GPSL : \n");
+						writer.println(p.execute("this.name") + " = " + p.execute("this.gpslRepresentation"));
+
+						// writer.println("\n//------its atomic propositions -----------------");
+						// writer.println("// AP : "+p.execute("this.scope"));
+						// writer.println("// AP : "+p.execute("this.pattern"));
+
+					}
+				}
+
+				writer.println("//-------------------------------------");
+				writer.println("//-End of file ");
+				writer.println("//-All porperties have been generated");
+				writer.println("//-Total : " + properties.size());
+				writer.println("//-------------------------------------");
+
+				// --------------------------------------------------------
+
+				writer.close();
+
 			} catch (TypeMismatchException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -315,119 +392,7 @@ public class OWFileMenu extends FileMenu {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 		}
-		
-		//-----write to file------------------
-		public void writeToFile(String fileName,FMLRTVirtualModelInstance propertiesVMI) throws IOException
-		  {
-			List<FlexoConceptInstance> properties = new ArrayList<>();
-			FlexoConceptInstance property;
-			//FlexoConceptInstance requirementOfProperty;
-			List<FlexoConceptInstance> atomicPropositions;
-			
-			PrintWriter writer;
-			writer=new PrintWriter(new FileWriter(fileName));
-			
-			//---------------------------------------------------------
-	try {
-			
-			for(FlexoConceptInstance pp : propertiesVMI.getVirtualModelInstances())
-			{
-				//writer.println("-------------------------");
-				atomicPropositions = pp.execute("this.atomicPropositions");
-				properties = pp.execute("this.properties");
-				
-				//writer.println("Atomic Propositions = "+atomicPropositions);
-				///writer.println("Properties = "+properties);
-				//writer.println("-------------------------");
-				//for(FlexoConceptInstance p : properties)
-				
-				
-				writer.println("//----------------------------------------------------------");
-				writer.println("//-----------------project GPSL file------------------------");
-				writer.println("//----------------------------------------------------------");
-				writer.println("// this file contains all the properties defined for your projcet \n\n");
-				writer.println("// the file structure is as follows :\n"+
-				                   "// fror each property defined on the process execution, you have : \n"+
-								   "// name : property name \n"+
-				                   "// requirement : \n"+
-								   "//   name : requirement description");
-				writer.println("//----------------------------------------------------------");
-					
-			    // List of atomic propositions--------------------------	
-				FlexoConceptInstance ap;
-				
-				writer.println("\n//--------List of Atomic propositions-----------------------");
-				writer.println("//---Number of Atomic propositions : "+ atomicPropositions.size());
-				writer.println("//----------------------------------------------------------");
-				
-				for(int i=0;i<atomicPropositions.size();i++)
-				{
-					ap=atomicPropositions.get(i);		
-					writer.println("\n//----------Atomic proposition N°:"+(i+1)+"-------------------");
-					writer.println("// Name : "+ap.execute("this.name"));
-					writer.println("// Description : "+ap.execute("this.description"));
-					writer.println("\nlet "+ap.execute("this.name")+"="+ap.execute("this.expressionProperty"));
-						
-				} 
-				
-				// List of properties--------------------------	
-				
-				FlexoConceptInstance p;
-				
-				writer.println("\n//-------------List of properties------------------------");
-				writer.println("//---Number of properties : "+ properties.size());
-				writer.println("//----------------------------------------------------------");
-				
-				for(int i=0;i<properties.size();i++)
-				{
-					p=properties.get(i);		
-					writer.println("\n//----------Property N°:"+(i+1)+"-------------------");
-					writer.println("// Name : "+p.execute("this.name"));
-					writer.println("// Requirement : \n"+
-									   "//   "+p.execute("this.requirement.name")+
-									   " : "+p.execute("this.requirement.description"));
-					//writer.println("Description = "+p.execute("this.description"));
-					writer.println("// GPSL : \n");
-					writer.println(p.execute("this.name")+" = "+p.execute("this.gpslRepresentation"));
-					
-					//writer.println("\n//------its atomic propositions -----------------");
-					//writer.println("// AP : "+p.execute("this.scope"));
-					//writer.println("// AP : "+p.execute("this.pattern"));
-					
-					
-				}  
-			}
-			
-			writer.println("//-------------------------------------");
-			writer.println("//-End of file ");
-			writer.println("//-All porperties have been generated");
-			writer.println("//-Total : "+properties.size());
-			writer.println("//-------------------------------------");
-			
-	   //--------------------------------------------------------
-			
-			writer.close();
-		  
-		  
-	} catch (TypeMismatchException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	} catch (NullReferenceException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	} catch (InvocationTargetException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	} catch (InvalidBindingException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
 	}
-   }
- }
 
 }
